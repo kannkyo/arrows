@@ -70,17 +70,17 @@ services:
     volumes:
       - 'redmine-files:/usr/src/redmine/files'
     environment:
-      REDMINE_DB_POSTGRES: 'redmine-db'
       TZ: Asia/Tokyo
+      REDMINE_DB_MYSQL: 'redmine-db'
       REDMINE_DB_PASSWORD: 'example'
     links:
       - 'gitlab'
 
   redmine-db:
-    image: 'postgres:latest'
+    image: 'mysql:5.7'
     restart: always
     volumes:
-      - 'redmine-db-data:/var/lib/postgresql/data'
+      - 'redmine-db-data:/var/lib/mysql'
     environment:
       TZ: Asia/Tokyo
       MYSQL_ROOT_PASSWORD: 'example'
