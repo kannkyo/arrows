@@ -1,0 +1,19 @@
+server {
+  listen      80;
+  listen [::]:80;
+  server_name localhost;
+
+  root /var/www/html;
+  access_log /var/log/nginx/access.log;
+  error_log  /var/log/nginx/error.log;
+
+  location /jenkins {
+    proxy_pass http://jenkins:8080;
+  }
+
+  error_page   500 502 503 504  /50x.html;
+  location = /50x.html {
+    root   /usr/share/nginx/html;
+  }
+}
+
