@@ -1,0 +1,27 @@
+{
+  "name": "bower",
+  "description": "for Nexus3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.5",
+    "vue": "^v2.5.13",
+    "angular": "^v1.6.9",
+    "jquery-ui": "^1.12.1",
+    "golden-layout": "^v1.5.9",
+    "bootstrap-table": "^1.11.1",
+    "satellite.js": "^2.0.0",
+    "flatpickr": "^v4.3.2",
+    "angular-flatpickr": "^v3.4.0",
+    "moment-duration-format": "^2.2.2",
+    "angular-bootstrap": "^2.5.0",
+    "jquery": "^3.3.1",
+    "moment": "^2.20.1",
+    "c3": "^v0.4.21"
+  }
+}

@@ -1,0 +1,107 @@
+version: '3.1'
+
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'localhost:80'
+    volumes:
+      - 'gitlab-etc:/etc/gitlab'
+      - 'gitlab-logs:/var/log/gitlab'
+      - 'gitlab-data:/var/opt/gitlab'
+    ports:
+      - '80:80'
+      - '10081:10081'
+      - '10082:10082'
+      - '10443:443'
+      - '10022:22'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost:80'
+        mattermost_external_url 'http://localhost:10081'
+        registry_external_url 'http://localhost:10082'
+    links:
+      - 'gitlab-runner'
+      - 'gitlab-specific-runner'
+      - 'nexus'
+
+  gitlab-runner:
+    image: 'gitlab/gitlab-runner:latest'
+    restart: always
+    volumes:
+      - 'gitlab-runner-etc:/etc/gitlab-runner'
+      - 'gitlab-runner-home:/home/gitlab-runner'
+      - '/var/run/docker.sock:/var/run/docker.soc'
+
+  gitlab-specific-runner:
+    image: 'gitlab/gitlab-runner:latest'
+    restart: always
+    volumes:
+      - 'gitlab-specific-runner-etc:/etc/gitlab-runner'
+      - 'gitlab-specific-runner-home:/home/gitlab-runner'
+      - '/var/run/docker.sock:/var/run/docker.soc'
+
+  redmine:
+    image: 'redmine:latest'
+    restart: always
+    ports:
+      - '23000:3000'
+    volumes:
+      - 'redmine-files:/usr/src/redmine/files'
+    environment:
+      REDMINE_DB_POSTGRES: 'redmine-db'
+      REDMINE_DB_PASSWORD: 'example'
+    links:
+      - 'gitlab'
+
+  redmine-db:
+    image: 'postgres:latest'
+    restart: always
+    volumes:
+      - 'redmine-db-data:/var/lib/postgresql/data'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'example'
+      MYSQL_DATABASE: 'redmine'
+
+  nexus:
+    image: 'sonatype/nexus3:latest'
+    restart: always
+    ports:
+      - '48081:8081'
+    volumes:
+      - 'nexus-data:/nexus-data'
+ 
+  jenkins:
+    image: 'jenkins:latest'
+    restart: always
+    volumes:
+      - 'jenkins-home:/var/jenkins_home'
+    ports:
+      - '58080:8080'
+      - '50000:50000'
+    links:
+      - 'gitlab'
+      - 'nexus'
+
+  archiva:
+    image: 'xetusoss/archiva'
+    restart: always
+    volumes:
+      - 'archiva-data:/archiva-data'
+    ports:
+      - '1080:8080'
+
+volumes:
+  gitlab-etc:
+  gitlab-logs:
+  gitlab-data:
+  gitlab-runner-etc:
+  gitlab-runner-home:
+  gitlab-specific-runner-etc:
+  gitlab-specific-runner-home:
+  redmine-files:
+  redmine-db-data:
+  nexus-data:
+  jenkins-home:
+  archiva-data:
+
