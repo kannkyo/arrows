@@ -15,9 +15,6 @@ server {
   listen *:80;
   server_name localhost;
 
-  root /var/www/html;
-  access_log /var/log/nginx/access.log;
-  error_log  /var/log/nginx/error.log;
   # https://help.sonatype.com/repomanager3/installation/run-behind-a-reverse-proxy#RunBehindaReverseProxy-nginx
   # Use IPv4 upstream address instead of DNS name to avoid attempts by nginx to use IPv6 DNS lookup
   location /nexus {
