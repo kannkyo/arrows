@@ -18,6 +18,7 @@ proxy_set_header        X-Forwarded-Proto $scheme;
 
 server {
   listen *:80;
+  listen *:443;
   server_name localhost;
 
   # https://help.sonatype.com/repomanager3/installation/run-behind-a-reverse-proxy#RunBehindaReverseProxy-nginx
