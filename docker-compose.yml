@@ -16,10 +16,12 @@ services:
       - redmine
       - nexus
       - jenkins
+      - archiva
     links:
       - 'redmine'
       - 'nexus'
       - 'jenkins'
+      - 'archiva'
 
   gitlab:
     image: 'gitlab/gitlab-ce:latest'
@@ -127,6 +129,7 @@ services:
       TZ: Asia/Tokyo
     volumes:
       - 'archiva-data:/archiva-data'
+      - './archiva/archiva.xml:/archiva/contexts/archiva.xml' #nginx用
     ports:
       - '1080:8080'
 
