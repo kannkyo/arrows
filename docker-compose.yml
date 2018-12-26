@@ -42,6 +42,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       GITLAB_OMNIBUS_CONFIG: |
+        gitlab_rails['lfs_enabled'] = true
         external_url 'http://localhost:80/gitlab'
         mattermost_external_url 'http://localhost:10081'
         registry_external_url 'http://localhost:10082'
