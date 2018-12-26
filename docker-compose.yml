@@ -107,7 +107,7 @@ services:
     volumes:
       - 'jenkins-home:/var/jenkins_home'
     environment:
-      - JENKINS_OPTS=--prefix=/jenkins #nginx用
+      JENKINS_OPTS: '--prefix=/jenkins' #nginx用
       TZ: Asia/Tokyo
     ports:
       - '58080:8080'

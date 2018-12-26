@@ -27,8 +27,18 @@ server {
     proxy_pass http://nexus:8081;
   }
 
-  location /jenkins {
-    proxy_pass http://jenkins:8080;
+  # https://github.com/mjstealey/jenkins-nginx-docker/blob/master/nginx/default.conf
+  location ^~ /jenkins/ {
+    proxy_pass              http://jenkins:8080/jenkins/;
+
+    # proxy_redirect          http://jenkins:8080/jenkins http://localhost/jenkins;
+
+    # Required for new HTTP-based CLI
+    # proxy_http_version 1.1;
+    # proxy_request_buffering off;
+
+    # workaround for https://issues.jenkins-ci.org/browse/JENKINS-45651
+    # add_header 'X-SSH-Endpoint' 'localhost:50022' always;
   }
 
   error_page   500 502 503 504  /50x.html;
