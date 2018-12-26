@@ -11,6 +11,11 @@ client_max_body_size 1G;
 # optimize downloading files larger than 1G
 #proxy_max_temp_file_size 2G;
 
+proxy_set_header        Host $host:$server_port;
+proxy_set_header        X-Real-IP $remote_addr;
+proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header        X-Forwarded-Proto $scheme;
+
 server {
   listen *:80;
   server_name localhost;
@@ -19,9 +24,6 @@ server {
   # Use IPv4 upstream address instead of DNS name to avoid attempts by nginx to use IPv6 DNS lookup
   location /nexus {
     proxy_pass http://nexus:8081;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
   }
 
   location /jenkins {
