@@ -27,6 +27,10 @@ server {
     proxy_pass http://nexus:8081;
   }
 
+  location ^~ /redmine/ {
+    proxy_pass http://redmine:3000/redmine/;
+  }
+
   # https://github.com/mjstealey/jenkins-nginx-docker/blob/master/nginx/default.conf
   location ^~ /jenkins/ {
     proxy_pass              http://jenkins:8080/jenkins/;

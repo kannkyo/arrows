@@ -13,9 +13,11 @@ services:
       TZ: Asia/Tokyo
     command: /bin/bash -c "envsubst '' < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
     depends_on:
+      - redmine
       - nexus
       - jenkins
     links:
+      - 'redmine'
       - 'nexus'
       - 'jenkins'
 
@@ -71,10 +73,12 @@ services:
       - '23000:3000'
     volumes:
       - 'redmine-files:/usr/src/redmine/files'
+      - './redmine/config.ru:/usr/src/redmine/config.ru' #nginx用
     environment:
       TZ: Asia/Tokyo
       REDMINE_DB_MYSQL: 'redmine-db'
       REDMINE_DB_PASSWORD: 'example'
+      RAILS_RELATIVE_URL_ROOT: /redmine
     links:
       - 'gitlab'
 
