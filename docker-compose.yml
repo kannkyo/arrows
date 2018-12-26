@@ -13,11 +13,13 @@ services:
       TZ: Asia/Tokyo
     command: /bin/bash -c "envsubst '' < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
     depends_on:
+      - gitlab
       - redmine
       - nexus
       - jenkins
       - archiva
     links:
+      - 'gitlab'
       - 'redmine'
       - 'nexus'
       - 'jenkins'
@@ -32,15 +34,15 @@ services:
       - 'gitlab-logs:/var/log/gitlab'
       - 'gitlab-data:/var/opt/gitlab'
     ports:
-      - '80:80'
       - '10081:10081'
+      - '10080:80'
       - '10082:10082'
       - '10443:443'
       - '10022:22'
     environment:
       TZ: Asia/Tokyo
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://localhost:80'
+        external_url 'http://localhost:80/gitlab'
         mattermost_external_url 'http://localhost:10081'
         registry_external_url 'http://localhost:10082'
     links:

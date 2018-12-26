@@ -27,6 +27,10 @@ server {
     proxy_pass http://nexus:8081;
   }
 
+  location ^~ /gitlab/ {
+    proxy_pass http://gitlab/gitlab/;
+  }
+
   location ^~ /archiva/ {
     proxy_pass http://archiva:8080/archiva/;
   }
