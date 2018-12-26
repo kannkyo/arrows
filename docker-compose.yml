@@ -28,7 +28,6 @@ services:
   gitlab:
     image: gitlab/gitlab-ce:latest
     restart: always
-    hostname: localhost:80
     volumes:
       - gitlab-etc:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
