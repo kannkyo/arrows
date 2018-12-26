@@ -2,10 +2,10 @@ version: '3.1'
 
 services:
   proxy:
-    image: 'nginx:latest'
+    image: nginx:latest
     restart: always
     volumes:
-      - './reverse-proxy/mysite.template:/etc/nginx/conf.d/mysite.template'
+      - ./reverse-proxy/mysite.template:/etc/nginx/conf.d/mysite.template
     ports:
       - '80:80'
       - '443:443'
@@ -19,20 +19,20 @@ services:
       - jenkins
       - archiva
     links:
-      - 'gitlab'
-      - 'redmine'
-      - 'nexus'
-      - 'jenkins'
-      - 'archiva'
+      - gitlab
+      - redmine
+      - nexus
+      - jenkins
+      - archiva
 
   gitlab:
-    image: 'gitlab/gitlab-ce:latest'
+    image: gitlab/gitlab-ce:latest
     restart: always
-    hostname: 'localhost:80'
+    hostname: localhost:80
     volumes:
-      - 'gitlab-etc:/etc/gitlab'
-      - 'gitlab-logs:/var/log/gitlab'
-      - 'gitlab-data:/var/opt/gitlab'
+      - gitlab-etc:/etc/gitlab
+      - gitlab-logs:/var/log/gitlab
+      - gitlab-data:/var/opt/gitlab
     ports:
       - '10081:10081'
       - '10080:80'
@@ -47,27 +47,27 @@ services:
         mattermost_external_url 'http://localhost:10081'
         registry_external_url 'http://localhost:10082'
     links:
-      - 'gitlab-runner'
-      - 'gitlab-specific-runner'
-      - 'nexus'
+      - gitlab-runner
+      - gitlab-specific-runner
+      - nexus
 
   gitlab-runner:
-    image: 'gitlab/gitlab-runner:latest'
+    image: gitlab/gitlab-runner:latest
     restart: always
     volumes:
-      - 'gitlab-runner-etc:/etc/gitlab-runner'
-      - 'gitlab-runner-home:/home/gitlab-runner'
-      - '/var/run/docker.sock:/var/run/docker.soc'
+      - gitlab-runner-etc:/etc/gitlab-runner
+      - gitlab-runner-home:/home/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.soc
     environment:
       TZ: Asia/Tokyo
 
   gitlab-specific-runner:
-    image: 'gitlab/gitlab-runner:latest'
+    image: gitlab/gitlab-runner:latest
     restart: always
     volumes:
-      - 'gitlab-specific-runner-etc:/etc/gitlab-runner'
-      - 'gitlab-specific-runner-home:/home/gitlab-runner'
-      - '/var/run/docker.sock:/var/run/docker.soc'
+      - gitlab-specific-runner-etc:/etc/gitlab-runner
+      - gitlab-specific-runner-home:/home/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.soc
     environment:
       TZ: Asia/Tokyo
 
@@ -75,7 +75,7 @@ services:
     image: redmine:latest
     restart: always
     ports:
-      - 23000:3000
+      - '23000:3000'
     volumes:
       - redmine-files:/usr/src/redmine/files
       - ./redmine/config.ru:/usr/src/redmine/config.ru #nginx用
@@ -88,20 +88,20 @@ services:
       - gitlab
 
   redmine-db:
-    image: 'mysql:5.7'
+    image: mysql:5.7
     restart: always
     volumes:
-      - 'redmine-db-data:/var/lib/mysql'
+      - redmine-db-data:/var/lib/mysql
     environment:
       TZ: Asia/Tokyo
-      MYSQL_ROOT_PASSWORD: 'example'
-      MYSQL_DATABASE: 'redmine'
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: redmine
 
   nexus:
     image: sonatype/nexus3:latest
     restart: always
     ports:
-      - 48081:8081
+      - '48081:8081'
     volumes:
       - nexus-data:/nexus-data
       - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties #nginx用
@@ -119,8 +119,8 @@ services:
       JENKINS_OPTS: --prefix=/jenkins #nginx用
       TZ: Asia/Tokyo
     ports:
-      - 58080:8080
-      - 50000:50000
+      - '58080:8080'
+      - '50000:50000'
     links:
       - gitlab
       - nexus
@@ -134,7 +134,7 @@ services:
       - archiva-data:/archiva-data
       - ./archiva/archiva.xml:/archiva/contexts/archiva.xml #nginx用
     ports:
-      - 1080:8080
+      - '1080:8080'
 
 volumes:
   gitlab-etc:
