@@ -69,20 +69,20 @@ services:
       TZ: Asia/Tokyo
 
   redmine:
-    image: 'redmine:latest'
+    image: redmine:latest
     restart: always
     ports:
-      - '23000:3000'
+      - 23000:3000
     volumes:
-      - 'redmine-files:/usr/src/redmine/files'
-      - './redmine/config.ru:/usr/src/redmine/config.ru' #nginx用
+      - redmine-files:/usr/src/redmine/files
+      - ./redmine/config.ru:/usr/src/redmine/config.ru #nginx用
     environment:
       TZ: Asia/Tokyo
-      REDMINE_DB_MYSQL: 'redmine-db'
-      REDMINE_DB_PASSWORD: 'example'
+      REDMINE_DB_MYSQL: redmine-db
+      REDMINE_DB_PASSWORD: example
       RAILS_RELATIVE_URL_ROOT: /redmine
     links:
-      - 'gitlab'
+      - gitlab
 
   redmine-db:
     image: 'mysql:5.7'
@@ -95,43 +95,43 @@ services:
       MYSQL_DATABASE: 'redmine'
 
   nexus:
-    image: 'sonatype/nexus3:latest'
+    image: sonatype/nexus3:latest
     restart: always
     ports:
-      - '48081:8081'
+      - 48081:8081
     volumes:
-      - 'nexus-data:/nexus-data'
-      - './nexus/nexus.properties:/nexus-data/etc/nexus.properties' #nginx用
-      - './nexus/jetty-http.xml:/opt/sonatype/nexus/etc/jetty-http.xml' #nginx用
+      - nexus-data:/nexus-data
+      - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties #nginx用
+      - ./nexus/jetty-http.xml:/opt/sonatype/nexus/etc/jetty-http.xml #nginx用
     environment:
       TZ: Asia/Tokyo
       NEXUS_CONTEXT: nexus #nginx用
  
   jenkins:
-    image: 'jenkins:latest'
+    image: jenkins:latest
     restart: always
     volumes:
-      - 'jenkins-home:/var/jenkins_home'
+      - jenkins-home:/var/jenkins_home
     environment:
-      JENKINS_OPTS: '--prefix=/jenkins' #nginx用
+      JENKINS_OPTS: --prefix=/jenkins #nginx用
       TZ: Asia/Tokyo
     ports:
-      - '58080:8080'
-      - '50000:50000'
+      - 58080:8080
+      - 50000:50000
     links:
-      - 'gitlab'
-      - 'nexus'
+      - gitlab
+      - nexus
 
   archiva:
-    image: 'xetusoss/archiva'
+    image: xetusoss/archiva
     restart: always
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - 'archiva-data:/archiva-data'
-      - './archiva/archiva.xml:/archiva/contexts/archiva.xml' #nginx用
+      - archiva-data:/archiva-data
+      - ./archiva/archiva.xml:/archiva/contexts/archiva.xml #nginx用
     ports:
-      - '1080:8080'
+      - 1080:8080
 
 volumes:
   gitlab-etc:
