@@ -1,0 +1,12 @@
+arrows_archiva_1,archiva-data,/archiva-data
+arrows_gitlab_1,gitlab-etc,/etc/gitlab
+arrows_gitlab_1,gitlab-data,/var/opt/gitlab
+arrows_gitlab_1,gitlab-logs,/var/log/gitlab
+arrows_gitlab-runner_1,gitlab-runner-etc,/etc/gitlab-runner
+arrows_gitlab-runner_1,gitlab-runner-home,/home/gitlab-runner
+arrows_gitlab-specific-runner_1,gitlab-specific-runner-etc,/etc/gitlab-runner
+arrows_gitlab-specific-runner_1,gitlab-specific-runner-home,/home/gitlab-runner
+arrows_jenkins_1,jenkins-home,/var/jenkins_home
+arrows_nexus_1,nexus-data,/nexus-data
+arrows_redmine_1,redmine-files,/usr/src/redmine/files
+arrows_redmine-db_1,redmine-db-data,/var/lib/mysql
