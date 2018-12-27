@@ -15,7 +15,7 @@ services:
     image: nginx:latest
     restart: always
     volumes:
-      - ./nginx/mysite.template:/etc/nginx/conf.d/mysite.template
+      - ./nginx/mysite.template:/etc/nginx/conf.d/mysite.template:ro
     ports:
       - '80:80'
       - '443:443'
@@ -62,7 +62,7 @@ services:
     volumes:
       - gitlab-runner-etc:/etc/gitlab-runner
       - gitlab-runner-home:/home/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.soc
+      - /var/run/docker.sock:/var/run/docker.soc:ro
     environment:
       TZ: Asia/Tokyo
     networks:
@@ -74,7 +74,7 @@ services:
     volumes:
       - gitlab-specific-runner-etc:/etc/gitlab-runner
       - gitlab-specific-runner-home:/home/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.soc
+      - /var/run/docker.sock:/var/run/docker.soc:ro
     environment:
       TZ: Asia/Tokyo
     networks:
@@ -87,7 +87,7 @@ services:
       - '23000:3000'
     volumes:
       - redmine-files:/usr/src/redmine/files
-      - ./redmine/config.ru:/usr/src/redmine/config.ru #for nginx
+      - ./redmine/config.ru:/usr/src/redmine/config.ru:ro #for nginx
     environment:
       TZ: Asia/Tokyo
       REDMINE_DB_MYSQL: redmine-db
@@ -103,7 +103,7 @@ services:
     restart: always
     volumes:
       - redmine-db-data:/var/lib/mysql
-      - ./mysql/charset.cnf:/etc/mysql/conf.d/charset.cnf/ #for japanese
+      - ./mysql/charset.cnf:/etc/mysql/conf.d/charset.cnf/:ro #for japanese
     environment:
       TZ: Asia/Tokyo
       MYSQL_ROOT_PASSWORD: example
@@ -118,8 +118,8 @@ services:
       - '48081:8081'
     volumes:
       - nexus-data:/nexus-data
-      - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties #for nginx
-      - ./nexus/jetty-http.xml:/opt/sonatype/nexus/etc/jetty-http.xml #for nginx
+      - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
+      - ./nexus/jetty-http.xml:/opt/sonatype/nexus/etc/jetty-http.xml:ro #for nginx
     environment:
       TZ: Asia/Tokyo
       NEXUS_CONTEXT: nexus #for nginx
@@ -149,7 +149,7 @@ services:
       TZ: Asia/Tokyo
     volumes:
       - archiva-data:/archiva-data
-      - ./archiva/archiva.xml:/archiva/contexts/archiva.xml #for nginx
+      - ./archiva/archiva.xml:/archiva/contexts/archiva.xml:ro #for nginx
     ports:
       - '1080:8080'
     networks:
