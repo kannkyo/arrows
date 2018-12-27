@@ -93,6 +93,7 @@ services:
     restart: always
     volumes:
       - redmine-db-data:/var/lib/mysql
+      - ./mysql/charset.cnf:/etc/mysql/conf.d/charset.cnf/ #for japanese
     environment:
       TZ: Asia/Tokyo
       MYSQL_ROOT_PASSWORD: example
