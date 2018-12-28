@@ -163,7 +163,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       MONGO_URL: mongodb://mongodb/rocketchat
-      ROOT_URL: http://localhost:80
+      ROOT_URL: http://localhost/rocketchat
     ports:
       - "1235:3000"
     networks:
