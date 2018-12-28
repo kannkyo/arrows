@@ -12,7 +12,7 @@ services:
       - public
 
   nginx:
-    image: nginx:latest
+    build: ./nginx
     restart: always
     volumes:
       - ./nginx/mysite.template:/etc/nginx/conf.d/mysite.template:ro
@@ -32,7 +32,7 @@ services:
       - public
 
   gitlab:
-    image: gitlab/gitlab-ce:latest
+    build: ./gitlab
     restart: always
     volumes:
       - gitlab-etc:/etc/gitlab
