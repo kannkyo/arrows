@@ -374,7 +374,7 @@
 		<repository>
 			<id>maven-group</id>
 			<name>My Maven Group Repository</name>
-			<url>http://localhost:48081/repository/maven2-group/</url>
+			<url>http://localhost/nexus/repository/maven2-group/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -388,7 +388,7 @@
 		<pluginRepository>
 			<id>maven-group</id>
 			<name>My Maven Group Repository</name>
-			<url>http://localhost:48081/repository/maven2-group/</url>
+			<url>http://localhost/nexus/repository/maven2-group/</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -396,7 +396,7 @@
 		<repository>
 			<id>maven2-private</id>
 			<name>My Maven Hosted Repository</name>
-			<url>http://localhost:48081/repository/maven2-private/</url>
+			<url>http://localhost/nexus/repository/maven2-private/</url>
 		</repository>
 	</distributionManagement>
 </project>

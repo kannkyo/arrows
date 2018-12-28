@@ -115,7 +115,8 @@ services:
     image: sonatype/nexus3:latest
     restart: always
     ports:
-      - '48081:8081'
+      - '48081:8081'  #others
+      - '48082:48082' #docker
     volumes:
       - nexus-data:/nexus-data
       - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx

@@ -1,6 +1,6 @@
 {
   "registry" : {
-    "search" : [ "http://localhost:48081/repository/bower-group" ]
+    "search" : [ "http://localhost/nexus/repository/bower-group" ]
    },
  "resolvers" : [ "bower-nexus3-resolver" ]
 }
