@@ -157,11 +157,51 @@ services:
       - public
       - private
 
+  rocketchat:
+    image: rocketchat/rocket.chat:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      MONGO_URL: mongodb://mongodb/rocketchat
+      ROOT_URL: http://localhost:80
+    ports:
+      - "1235:3000"
+    networks:
+      - public
+      - rocket-nw
+
+  mongodb:
+    image: mongo:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    ports:
+      - 27017
+    volumes:
+      - rocketchat-db:/var/lib/mongodb
+    networks:
+      - rocket-nw
+
+  hubot:
+    image: rocketchat/hubot-rocketchat:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      ROCKETCHAT_URL: rocketchat:3000
+      ROCKETCHAT_ROOM: GENERAL
+      ROCKETCHAT_USER: bot
+      ROCKETCHAT_PASSWORD: bot
+      BOT_NAME: bot
+      EXTERNAL_SCRIPTS: hubot-pugme,hubot-help
+    networks:
+      - rocket-nw
+
 networks:
   public:
   private:
   redmine-nw:
   gitlab-nw:
+  rocket-nw:
 
 volumes:
   gitlab-etc:
@@ -176,4 +216,5 @@ volumes:
   nexus-data:
   jenkins-home:
   archiva-data:
+  rocketchat-db:
 
