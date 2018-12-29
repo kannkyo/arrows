@@ -120,7 +120,6 @@ services:
     volumes:
       - nexus-data:/nexus-data
       - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
-      - ./nexus/jetty-http.xml:/opt/sonatype/nexus/etc/jetty-http.xml:ro #for nginx
     environment:
       TZ: Asia/Tokyo
       NEXUS_CONTEXT: nexus #for nginx

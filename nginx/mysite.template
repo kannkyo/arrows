@@ -23,8 +23,8 @@ server {
 
   # https://help.sonatype.com/repomanager3/installation/run-behind-a-reverse-proxy#RunBehindaReverseProxy-nginx
   # Use IPv4 upstream address instead of DNS name to avoid attempts by nginx to use IPv6 DNS lookup
-  location /nexus {
-    proxy_pass http://nexus:8081;
+  location ^~ /nexus/ {
+    proxy_pass http://nexus:8081/nexus/;
   }
 
   location ^~ /gitlab/ {
