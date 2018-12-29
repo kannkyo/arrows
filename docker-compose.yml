@@ -180,24 +180,24 @@ services:
       - rocket-nw
 
 networks:
+  gitlab-nw:
+  jenkins-nw:
   public:
   redmine-nw:
-  gitlab-nw:
   rocket-nw:
-  jenkins-nw:
 
 volumes:
+  archiva-data:
+  gitlab-data:
   gitlab-etc:
   gitlab-logs:
-  gitlab-data:
   gitlab-runner-etc:
   gitlab-runner-home:
   gitlab-specific-runner-etc:
   gitlab-specific-runner-home:
-  redmine-files:
-  redmine-db-data:
-  nexus-data:
   jenkins-home:
-  archiva-data:
+  nexus-data:
+  redmine-db-data:
+  redmine-files:
   rocketchat-db:
 
