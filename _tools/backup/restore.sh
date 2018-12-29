@@ -9,14 +9,14 @@ restore_volume () {
   directory=`echo $1 | cut -d , -f 3`
 
 
-  src=$(pwd)/backupdata
+  src=$(pwd)/restoredata
   dst=/backup
 
   set -x
   docker stop $container
-  docker volume rm $volume
-  docker volume create $volume
-  docker run --rm --volumes-from $container -v $src:$dst ubuntu bash -c "cd ${directory} && tar zxf ${dst}/${volume}.tar.gz --strip 1"
+  docker run --rm --volumes-from $container -v $src:$dst ubuntu bash -c "cd ${directory} && pwd && ls -l && ls -A | xargs rm -rf"
+  docker run --rm --volumes-from $container -v $src:$dst ubuntu bash -c "cd / && tar zxf ${dst}/${volume}.tar.gz && pwd && ls -l ${directory}"
+  docker start $container
   set +x
 }
 

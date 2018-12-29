@@ -13,7 +13,9 @@ backup_volume () {
 
   set -x
   rm $dst/$volume.tar.gz
+  docker stop $container
   docker run --rm --volumes-from $container -v $dst:$src ubuntu tar zcf $src/$volume.tar.gz $directory
+  docker start $container
   set +x
 }
 
