@@ -49,7 +49,6 @@ services:
         registry_external_url 'http://localhost:10082'
     networks:
       - public
-      - private
       - gitlab-nw
 
   gitlab-runner:
@@ -86,7 +85,6 @@ services:
       RAILS_RELATIVE_URL_ROOT: /redmine
     networks:
       - public
-      - private
       - redmine-nw
 
   redmine-db:
@@ -114,7 +112,6 @@ services:
       NEXUS_CONTEXT: nexus #for nginx
     networks:
       - public
-      - private
  
   jenkins:
     build: ./jenkins/master
@@ -128,7 +125,6 @@ services:
       - '50000:50000'
     networks:
       - public
-      - private
       - jenkins-nw
 
   archiva:
@@ -143,7 +139,6 @@ services:
       - '1080:8080'
     networks:
       - public
-      - private
 
   rocketchat:
     image: rocketchat/rocket.chat:latest
@@ -186,7 +181,6 @@ services:
 
 networks:
   public:
-  private:
   redmine-nw:
   gitlab-nw:
   rocket-nw:
