@@ -38,6 +38,7 @@ services:
       - gitlab-etc:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
       - gitlab-data:/var/opt/gitlab
+      - ./gitlab/_backup:/secret/gitlab/backups
     ports:
       - '10081:10081'
       - '10080:80'
