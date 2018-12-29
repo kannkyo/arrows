@@ -6,8 +6,6 @@ services:
     restart: always
     ports:
       - '123:123'
-    environment:
-      TZ: Asia/Tokyo
     networks:
       - public
 
@@ -19,8 +17,6 @@ services:
     ports:
       - '80:80'
       - '443:443'
-    environment:
-      TZ: Asia/Tokyo
     command: /bin/bash -c "envsubst '' < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
     depends_on:
       - archiva
@@ -32,7 +28,7 @@ services:
       - public
 
   gitlab:
-    build: ./gitlab
+    build: ./gitlab/ce
     restart: always
     volumes:
       - gitlab-etc:/etc/gitlab
@@ -46,7 +42,6 @@ services:
       - '10443:443'
       - '10022:22'
     environment:
-      TZ: Asia/Tokyo
       GITLAB_OMNIBUS_CONFIG: |
         gitlab_rails['lfs_enabled'] = true
         external_url 'http://localhost:80/gitlab'
@@ -58,31 +53,27 @@ services:
       - gitlab-nw
 
   gitlab-runner:
-    image: gitlab/gitlab-runner:latest
+    build: ./gitlab/runner
     restart: always
     volumes:
       - gitlab-runner-etc:/etc/gitlab-runner
       - gitlab-runner-home:/home/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.soc:ro
-    environment:
-      TZ: Asia/Tokyo
     networks:
       - gitlab-nw
 
   gitlab-specific-runner:
-    image: gitlab/gitlab-runner:latest
+    build: ./gitlab/runner
     restart: always
     volumes:
       - gitlab-specific-runner-etc:/etc/gitlab-runner
       - gitlab-specific-runner-home:/home/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.soc:ro
-    environment:
-      TZ: Asia/Tokyo
     networks:
       - gitlab-nw
 
   redmine:
-    build: ./redmine
+    build: ./redmine/app
     restart: always
     ports:
       - '23000:3000'
@@ -99,20 +90,19 @@ services:
       - redmine-nw
 
   redmine-db:
-    image: mysql:5.7
+    build: ./redmine/db
     restart: always
     volumes:
       - redmine-db-data:/var/lib/mysql
-      - ./mysql/charset.cnf:/etc/mysql/conf.d/charset.cnf/:ro #for japanese
+      - ./redmine/db/charset.cnf:/etc/mysql/conf.d/charset.cnf/:ro #for japanese
     environment:
-      TZ: Asia/Tokyo
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: redmine
     networks:
       - redmine-nw
 
   nexus:
-    image: sonatype/nexus3:latest
+    build: ./nexus
     restart: always
     ports:
       - '48081:8081'  #others
@@ -121,14 +111,13 @@ services:
       - nexus-data:/nexus-data
       - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
     environment:
-      TZ: Asia/Tokyo
       NEXUS_CONTEXT: nexus #for nginx
     networks:
       - public
       - private
  
   jenkins:
-    build: ./jenkins
+    build: ./jenkins/master
     restart: always
     volumes:
       - jenkins-home:/var/jenkins_home
@@ -140,6 +129,7 @@ services:
     networks:
       - public
       - private
+      - jenkins-nw
 
   archiva:
     image: xetusoss/archiva
@@ -200,6 +190,7 @@ networks:
   redmine-nw:
   gitlab-nw:
   rocket-nw:
+  jenkins-nw:
 
 volumes:
   gitlab-etc:
