@@ -4,19 +4,21 @@
 # https://docs.docker.com/storage/volumes/#backup-restore-or-migrate-data-volumes
 
 backup_volume () {
-  docker run --rm --volumes-from $1 -v $(pwd)/backupdata:/backup ubuntu tar zcvf /backup/$2.tar.gz $3
-}
+  container=`echo $1 | cut -d , -f 1`
+  volume=`echo $1 | cut -d , -f 2`
+  directory=`echo $1 | cut -d , -f 3`
 
-# delete all tar
-rm backupdata/*.tar.gz
+  src=/backup
+  dst=$(pwd)/backupdata
+
+  set -x
+  rm $dst/$volume.tar.gz
+  docker run --rm --volumes-from $container -v $dst:$src ubuntu tar zcf $src/$volume.tar.gz $directory
+  set +x
+}
 
 # backup
 while read row; do
-  volume_name=`echo ${row} | cut -d , -f 1`
-  tar_name=`echo ${row} | cut -d , -f 2`
-  directory_name=`echo ${row} | cut -d , -f 3`
-
-  echo backup_volume $volume_name $tar_name $directory_name
-       backup_volume $volume_name $tar_name $directory_name
+  backup_volume $row
 done < backupinfo.csv
 
