@@ -82,7 +82,7 @@ services:
       - gitlab-nw
 
   redmine:
-    image: redmine:latest
+    build: ./redmine
     restart: always
     ports:
       - '23000:3000'
@@ -90,7 +90,6 @@ services:
       - redmine-files:/usr/src/redmine/files
       - ./redmine/config.ru:/usr/src/redmine/config.ru:ro #for nginx
     environment:
-      TZ: Asia/Tokyo
       REDMINE_DB_MYSQL: redmine-db
       REDMINE_DB_PASSWORD: example
       RAILS_RELATIVE_URL_ROOT: /redmine
