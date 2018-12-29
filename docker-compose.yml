@@ -129,13 +129,12 @@ services:
       - private
  
   jenkins:
-    image: jenkins:latest
+    build: ./jenkins
     restart: always
     volumes:
       - jenkins-home:/var/jenkins_home
     environment:
       JENKINS_OPTS: --prefix=/jenkins #for nginx
-      TZ: Asia/Tokyo
     ports:
       - '58080:8080'
       - '50000:50000'
