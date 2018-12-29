@@ -4,11 +4,11 @@
 # https://docs.docker.com/storage/volumes/#backup-restore-or-migrate-data-volumes
 
 backup_volume () {
-  docker run --rm --volumes-from $1 -v $(pwd)/backupdata:/backup ubuntu tar cvf /backup/$2.tar $3
+  docker run --rm --volumes-from $1 -v $(pwd)/backupdata:/backup ubuntu tar zcvf /backup/$2.tar.gz $3
 }
 
 # delete all tar
-rm backupdata/*.tar
+rm backupdata/*.tar.gz
 
 # backup
 while read row; do
