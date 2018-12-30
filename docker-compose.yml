@@ -128,10 +128,8 @@ services:
       - jenkins-nw
 
   archiva:
-    image: xetusoss/archiva
+    build: ./archiva
     restart: always
-    environment:
-      TZ: Asia/Tokyo
     volumes:
       - archiva-data:/archiva-data
       - ./archiva/archiva.xml:/archiva/contexts/archiva.xml:ro #for nginx
