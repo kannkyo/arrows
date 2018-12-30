@@ -1,2 +1,2 @@
-backupdata/**/*.tar.gz
-restoredata/**/*.tar.gz
+backupdata/**
+restoredata/**
