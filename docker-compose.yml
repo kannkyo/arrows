@@ -71,6 +71,14 @@ services:
     networks:
       - gitlab-nw
 
+  plantuml:
+    build: ./gitlab/plantuml
+    restart: always
+    ports:
+      - '38080:8080'
+    networks:
+      - gitlab-nw
+
   redmine:
     build: ./redmine/app
     restart: always
