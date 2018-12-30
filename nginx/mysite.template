@@ -31,10 +31,6 @@ server {
     proxy_pass http://gitlab/gitlab/;
   }
 
-  location ^~ /rocketchat/ {
-    proxy_pass http://rocketchat:3000/rocketchat/;
-  }
-
   location ^~ /archiva/ {
     proxy_pass http://archiva:8080/archiva/;
   }
@@ -53,4 +49,3 @@ server {
     root   /usr/share/nginx/html;
   }
 }
-
