@@ -188,6 +188,16 @@ services:
     networks:
       - elk-nw
 
+  samba:
+    build: ./samba
+    volumes:
+      - ./samba/smb.conf:/etc/samba/smb.conf:ro
+      - samba-data:/share
+    ports:
+      - "445:445"
+    networks:
+      - public
+
 networks:
   elk-nw:
   gitlab-nw:
@@ -210,3 +220,4 @@ volumes:
   nexus-data:
   redmine-db-data:
   redmine-files:
+  samba-data:
