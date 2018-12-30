@@ -107,6 +107,9 @@ services:
       - '48082:48082' #docker
     volumes:
       - nexus-data:/nexus-data
+      # https://help.sonatype.com/repomanager3/backup-and-restore
+      - nexus-backup:/nexus-backup #for config backup
+      #- nexus-backup:/restore-from-backup:ro #for config restore
       - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
     environment:
       NEXUS_CONTEXT: nexus #for nginx
@@ -194,6 +197,7 @@ volumes:
   gitlab-specific-runner-etc:
   gitlab-specific-runner-home:
   jenkins-home:
+  nexus-backup:
   nexus-data:
   redmine-db-data:
   redmine-files:
