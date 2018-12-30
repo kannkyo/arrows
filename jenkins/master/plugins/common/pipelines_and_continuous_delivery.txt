@@ -1,0 +1,5 @@
+copyartifact:latest
+parameterized-trigger:latest
+jenkins-multijob-plugin:latest
+conditional-buildstep:latest
+build-pipeline-plugin:latest

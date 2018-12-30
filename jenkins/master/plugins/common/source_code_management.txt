@@ -1,0 +1,2 @@
+git-parameter:latest
+gitlab-plugin:latest
