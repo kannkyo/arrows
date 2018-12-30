@@ -1,7 +1,7 @@
 1. Abstract
-   1. Feature
-      * include docker image for CI & CD
-      * backup and restore
+   * Feature
+     * include docker image for CI & CD
+     * backup and restore
 2. Docker image
    * Reverse proxy
      * [nginx](https://hub.docker.com/_/nginx/)

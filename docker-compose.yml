@@ -115,7 +115,8 @@ services:
       NEXUS_CONTEXT: nexus #for nginx
     networks:
       - public
- 
+
+
   jenkins:
     build: ./jenkins/master
     restart: always
@@ -202,4 +203,3 @@ volumes:
   redmine-db-data:
   redmine-files:
   rocketchat-db:
-
