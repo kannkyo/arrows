@@ -31,9 +31,9 @@ server {
     proxy_pass http://gitlab/gitlab/;
   }
 
-  location ^~ /archiva/ {
-    proxy_pass http://archiva:8080/archiva/;
-  }
+#  location ^~ /archiva/ {
+#    proxy_pass http://archiva:8080/archiva/;
+#  }
 
   location ^~ /redmine/ {
     proxy_pass http://redmine:3000/redmine/;
