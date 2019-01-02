@@ -86,7 +86,7 @@ services:
       - '23000:3000'
     volumes:
       - redmine-files:/usr/src/redmine/files
-      - ./redmine/config.ru:/usr/src/redmine/config.ru:ro #for nginx
+      - ./redmine/app/config.ru:/usr/src/redmine/config.ru:ro #for nginx
     environment:
       REDMINE_DB_MYSQL: redmine-db
       REDMINE_DB_PASSWORD: example
