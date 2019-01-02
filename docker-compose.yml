@@ -112,7 +112,8 @@ services:
     restart: always
     ports:
       - '48081:8081'  #others
-      - '48082:48082' #docker
+      - '48082:48082' #docker proxy server
+      - '48083:48083' #docker hosted server
     volumes:
       - nexus-data:/nexus-data
       # https://help.sonatype.com/repomanager3/backup-and-restore
