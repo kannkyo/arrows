@@ -1,7 +1,11 @@
 {
-  "registry" : {
-    "search" : [ "http://localhost/nexus/repository/bower-group" ]
-   },
- "resolvers" : [ "bower-nexus3-resolver" ]
+  "registry": {
+    "search": ["http://localhost/nexus/repository/bower-group"],
+    "register": "http://admin:admin123@localhost/nexus/repository/bower-hosted"
+  },
+  "resolvers": ["bower-nexus3-resolver"],
+  "nexus": {
+    "username": "admin",
+    "password": "admin123"
+  }
 }
-
