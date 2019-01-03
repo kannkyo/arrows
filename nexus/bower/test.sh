@@ -22,12 +22,12 @@ test_online_install () {
 
 test_publish () {
   bower_init
-  # npm install --save-dev bower-nexus3-resolver
+  npm install --save-dev bower-nexus3-resolver
   bower register nexus-hello-world git://github.com/indolering/hello-world.git -f
 }
 
 set -x
-# test_online_install
-# test_offline_install eth0
+test_online_install
+test_offline_install eth0
 test_publish
 set +x
