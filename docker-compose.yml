@@ -72,11 +72,13 @@ services:
       - gitlab-nw
 
   plantuml:
-    build: ./gitlab/plantuml
+    # build: ./gitlab/plantuml
+    image: plantuml/plantuml-server:latest
     restart: always
     ports:
       - '38080:8080'
     networks:
+      - public
       - gitlab-nw
 
   redmine:
