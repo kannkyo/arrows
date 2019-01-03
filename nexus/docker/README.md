@@ -6,7 +6,7 @@
       $ docker login localhost:48082
       ```
 
-   2. Pull image
+   2. Pull image on offline
 
       ```shell
       $ docker pull localhost:48082/<image>
@@ -18,7 +18,7 @@
       $ docker pull rmi localhost:48082/<image>
       ```
 
-   4. Push image
+   4. Push image on offline
 
       ```shell
       $ docker tag <imageId or imageName> localhost:48083/<image>
@@ -27,7 +27,7 @@
 
 2. Example
 
-   1. Pull
+   1. Pull image
 
        ```shell
        $ docker login localhost:48082
@@ -70,7 +70,7 @@
        
        ```
 
-   2. Push
+   2. Push image
 
        ```shell
        $ docker login localhost:48083
