@@ -25,7 +25,7 @@ test_online_install () {
 
 test_publish () {
   git clone https://github.com/BillMills/python-package-example.git
-  twine upload --repository-url http://localhost/nexus/repository/pypi-hosted/ python-package-example/dist/*
+  twine upload --repository-url http://localhost/nexus/repository/pypi-hosted/ -u admin -p admin123 python-package-example/dist/*
   rm -rf python-package-example
 }
 
