@@ -8,7 +8,7 @@
 
       if you want to use `admin:admin123`, you can use default _auth.
 
-2. Download new package on online
+2. Download new packages on online
 
    1. Make `.npmrc` file
 
@@ -25,10 +25,11 @@
    2. Clean cache
 
       ```shell
+      $ rm -rf node_modules
       $ npm cache clean --force
       ```
 
-   3. Install package
+   3. Install packages
 
       ```shell
       $ npm install --save <package name>
@@ -38,23 +39,23 @@
       $ npm install --save-dev <package name>
       ```
 
-3. Install new package on offline
+3. Install new packages on offline
    1. Make `.npmrc` file
-   2. Install
+   2. Install packages
 
-   ```shell
-   $ npm install --save <package name>
-   ```
+       ```shell
+       $ npm install --save <package name>
+       ```
 
-4. Install package from package.json on offline
+4. Install packages from package.json on offline
    1. Make `.npmrc` file
-   2. Install
+   2. Install packages
 
-   ```shell
-   $ npm update
-   ```
+       ```shell
+       $ npm update
+       ```
 
-5. Publish package on offline
+5. Publish packages on offline
 
    1. Make `.npmrc` file
 
@@ -76,7 +77,7 @@
 
 6. Example
 
-   1. Download new package on online
+   1. Download new packages on online
 
       ```shell
       $ npm cache clean --force
@@ -201,7 +202,7 @@
       added 778 packages from 710 contributors in 62.998s
       ```
 
-   2. Publish package on offline
+   2. Publish packages on offline
 
       ```shell
       $ git clone https://github.com/rms1000watt/hello-world-npm.git
