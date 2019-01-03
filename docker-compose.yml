@@ -89,6 +89,7 @@ services:
     volumes:
       - redmine-files:/usr/src/redmine/files
       - ./redmine/app/config.ru:/usr/src/redmine/config.ru:ro #for nginx
+      - redmine-git:/var/redmine/git_repositories #for gitlab
     environment:
       REDMINE_DB_MYSQL: redmine-db
       REDMINE_DB_PASSWORD: example
@@ -223,4 +224,5 @@ volumes:
   nexus-data:
   redmine-db-data:
   redmine-files:
+  redmine-git:
   samba-data:
