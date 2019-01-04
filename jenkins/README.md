@@ -28,4 +28,5 @@
      TBD
 3. Reference
      * [Docker official jenkins repo](https://github.com/jenkinsci/docker/)
+     * [gitlab-plugin/gitlab-to-jenkins-authentication](https://github.com/jenkinsci/gitlab-plugin#gitlab-to-jenkins-authentication)
 
