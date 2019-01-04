@@ -3,6 +3,8 @@ version: '3.1'
 services:
   ntp:
     build: ./ntp
+    env_file:
+      - ./common/common.env
     restart: always
     ports:
       - '123:123'
@@ -11,6 +13,8 @@ services:
 
   nginx:
     build: ./nginx
+    env_file:
+      - ./common/common.env
     restart: always
     volumes:
       - ./nginx/mysite.template:/etc/nginx/conf.d/mysite.template:ro
@@ -29,6 +33,8 @@ services:
 
   gitlab:
     build: ./gitlab/ce
+    env_file:
+      - ./common/common.env
     restart: always
     volumes:
       - gitlab-etc:/etc/gitlab
@@ -53,6 +59,8 @@ services:
 
   gitlab-runner:
     build: ./gitlab/runner
+    env_file:
+      - ./common/common.env
     restart: always
     volumes:
       - gitlab-runner-etc:/etc/gitlab-runner
@@ -63,6 +71,8 @@ services:
 
   gitlab-specific-runner:
     build: ./gitlab/runner
+    env_file:
+      - ./common/common.env
     restart: always
     volumes:
       - gitlab-specific-runner-etc:/etc/gitlab-runner
@@ -74,6 +84,8 @@ services:
   plantuml:
     # build: ./gitlab/plantuml
     image: plantuml/plantuml-server:latest
+    env_file:
+      - ./common/common.env
     restart: always
     ports:
       - '38080:8080'
@@ -83,6 +95,9 @@ services:
 
   redmine:
     build: ./redmine/app
+    env_file:
+      - ./common/common.env
+      - ./redmine/app/default.env
     restart: always
     ports:
       - '23000:3000'
@@ -90,28 +105,27 @@ services:
       - redmine-files:/usr/src/redmine/files
       - ./redmine/app/config.ru:/usr/src/redmine/config.ru:ro #for nginx
       - redmine-git:/var/redmine/git_repositories #for gitlab
-    environment:
-      REDMINE_DB_MYSQL: redmine-db
-      REDMINE_DB_PASSWORD: example
-      RAILS_RELATIVE_URL_ROOT: /redmine
     networks:
       - public
       - redmine-nw
 
   redmine-db:
     build: ./redmine/db
+    env_file:
+      - ./common/common.env
+      - ./redmine/db/default.env
     restart: always
     volumes:
       - redmine-db-data:/var/lib/mysql
       - ./redmine/db/charset.cnf:/etc/mysql/conf.d/charset.cnf/:ro #for japanese
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: redmine
     networks:
       - redmine-nw
 
   nexus:
     build: ./nexus
+    env_file:
+      - ./common/common.env
+      - ./nexus/default.env
     restart: always
     ports:
       - '48081:8081'  #others
@@ -123,19 +137,17 @@ services:
       - nexus-backup:/nexus-backup #for config backup
       #- nexus-backup:/restore-from-backup:ro #for config restore
       - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
-    environment:
-      NEXUS_CONTEXT: nexus #for nginx
     networks:
       - public
 
-
   jenkins:
     build: ./jenkins/master
+    env_file:
+      - ./common/common.env
+      - ./jenkins/master/default.env
     restart: always
     volumes:
       - jenkins-home:/var/jenkins_home
-    environment:
-      JENKINS_OPTS: --prefix=/jenkins #for nginx
     ports:
       - '58080:8080'
       - '50000:50000'
@@ -145,6 +157,8 @@ services:
 
 #  archiva:
 #    build: ./archiva
+#    env_file:
+#      - ./common/common.env
 #    restart: always
 #    volumes:
 #      - archiva-data:/archiva-data
@@ -156,20 +170,17 @@ services:
 
   hubot:
     image: rocketchat/hubot-rocketchat:latest
+    env_file:
+      - ./common/common.env
+      - ./gitlab/hubot/default.env
     restart: always
-    environment:
-      TZ: Asia/Tokyo
-      ROCKETCHAT_URL: rocketchat:3000
-      ROCKETCHAT_ROOM: GENERAL
-      ROCKETCHAT_USER: bot
-      ROCKETCHAT_PASSWORD: bot
-      BOT_NAME: bot
-      EXTERNAL_SCRIPTS: hubot-pugme,hubot-help
     networks:
       - gitlab-nw
 
   elasticsearch:
     build: ./elk/es
+    env_file:
+      - ./common/common.env
     ports:
       - "9200:9200"
     environment:
@@ -183,6 +194,8 @@ services:
 
   kibana:
     build: ./elk/kibana
+    env_file:
+      - ./common/common.env
     ports:
       - "5601:5601"
     volumes:
@@ -194,6 +207,8 @@ services:
 
   samba:
     build: ./samba
+    env_file:
+      - ./common/common.env
     volumes:
       - ./samba/smb.conf:/etc/samba/smb.conf:ro
       - samba-data:/share

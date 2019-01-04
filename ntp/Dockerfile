@@ -1,3 +1,1 @@
 FROM cturra/ntp
-
-ENV TZ=Asia/Tokyo
