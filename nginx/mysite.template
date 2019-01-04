@@ -44,6 +44,10 @@ server {
     proxy_pass http://jenkins:8080/jenkins/;
   }
 
+  location ^~ /plantuml/ {
+    proxy_pass http://plantuml:8080/plantuml/;
+  }
+
   error_page   500 502 503 504  /50x.html;
   location = /50x.html {
     root   /usr/share/nginx/html;

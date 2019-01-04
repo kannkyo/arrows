@@ -27,6 +27,7 @@ services:
       - gitlab
       - jenkins
       - ntp
+      - plantuml
       - redmine
     networks:
       - public
@@ -89,6 +90,8 @@ services:
     restart: always
     ports:
       - '38080:8080'
+    volumes:
+      - ./gitlab/plantuml/ROOT.xml:/var/lib/jetty/webapps/ROOT.xml:ro
     networks:
       - public
       - gitlab-nw
