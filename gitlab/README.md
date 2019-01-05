@@ -6,7 +6,14 @@
 
 2. Restore configuration
 
-3. Reference
+3. Account
+
+     1. Administrator
+          - admin/admin123
+     2. Others
+          - guest/password
+
+4. Reference
 
      - GitLab CE
        - [backup-and-restore-omnibus-gitlab-configuration](https://docs.gitlab.com/omnibus/settings/backups.html#backup-and-restore-omnibus-gitlab-configuration)
