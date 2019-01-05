@@ -265,10 +265,10 @@ services:
       - public
 
 networks:
+  public:
   elk-nw:
   gitlab-nw:
   jenkins-nw:
-  public:
   redmine-nw:
 
 volumes:

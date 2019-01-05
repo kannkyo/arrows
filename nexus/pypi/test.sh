@@ -1,10 +1,10 @@
 #!/bin/bash
 
-pipy_init () {
-  echo pipy_init
+pypi_init () {
+  echo pypi_init
 }
 
-pipy_install() {
+pypi_install() {
   sudo pip install --no-cache-dir --index-url http://localhost/nexus/repository/pypi-group/simple $1
   sudo pip uninstall $1 -y
 }
@@ -13,14 +13,14 @@ test_offline_install () {
   network=$1
 
   sudo ip link set $1 down
-  pipy_init
-  pipy_install piplint
+  pypi_init
+  pypi_install piplint
   sudo ip link set $1 up
 }
 
 test_online_install () {
-  pipy_init
-  pipy_install piplint
+  pypi_init
+  pypi_install piplint
 }
 
 test_publish () {
