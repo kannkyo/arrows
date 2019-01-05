@@ -189,6 +189,30 @@ services:
   #   networks:
   #     - public
 
+  rocketchat:
+    image: rocketchat/rocket.chat:latest
+    restart: always
+    env_file:
+      - ./common/common.env
+      - ./rocketchat/rocket.chat/default.env
+    ports:
+      - "1235:3000"
+    networks:
+      - public
+      - rocket-nw
+
+  rocketchat-db:
+    image: mongo:latest
+    restart: always
+    env_file:
+      - ./common/common.env
+    ports:
+      - 27017
+    volumes:
+      - rocketchat-db-data:/var/lib/mongodb
+    networks:
+      - rocket-nw
+
   hubot:
     image: rocketchat/hubot-rocketchat:latest
     env_file:
@@ -197,6 +221,7 @@ services:
     restart: always
     networks:
       - gitlab-nw
+      - rocket-nw
 
   elasticsearch:
     build: ./elk/es
@@ -244,6 +269,7 @@ networks:
   gitlab-nw:
   jenkins-nw:
   redmine-nw:
+  rocket-nw:
 
 volumes:
   # archiva-data:
@@ -263,4 +289,5 @@ volumes:
   redmine-db-data:
   redmine-files:
   redmine-git:
+  rocketchat-db-data:
   samba-data:

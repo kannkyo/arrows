@@ -52,6 +52,10 @@ server {
     proxy_pass http://phpldapadmin:80/phpldapadmin/;
   }
 
+  location ^~ /rocketchat/ {
+    proxy_pass http://rocketchat:3000/rocketchat/;
+  }
+
   error_page   500 502 503 504  /50x.html;
   location = /50x.html {
     root   /usr/share/nginx/html;
