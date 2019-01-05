@@ -35,6 +35,7 @@ services:
   openldap:
     image: osixia/openldap:latest
     env_file:
+      - ./common/common.env
       - ./ldap/openldap/default.env
     volumes:
       - ldap-config:/etc/ldap/slapd.d
@@ -45,6 +46,7 @@ services:
   phpldapadmin:
     image: osixia/phpldapadmin:latest
     env_file:
+      - ./common/common.env
       - ./ldap/phpldapadmin/default.env
     ports:
       - "180:80"
