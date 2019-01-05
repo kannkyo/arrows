@@ -139,7 +139,7 @@ services:
     restart: always
     volumes:
       - redmine-db-data:/var/lib/mysql
-      - ./redmine/db/charset.cnf:/etc/mysql/conf.d/charset.cnf/:ro #for japanese
+      - ./redmine/db/charset.cnf:/etc/mysql/conf.d/charset.cnf:ro #for japanese
     networks:
       - redmine-nw
 
@@ -203,10 +203,10 @@ services:
     build: ./elk/es
     env_file:
       - ./common/common.env
-    ports:
-      - "9200:9200"
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
     volumes:
       - es-data:/usr/share/elasticsearch/data/
       - ./elk/es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
