@@ -204,18 +204,18 @@ services:
       - public
       - jenkins-nw
 
-#  archiva:
-#    build: ./archiva
-#    env_file:
-#      - ./common/common.env
-#    restart: always
-#    volumes:
-#      - archiva-data:/archiva-data
-#      - ./archiva/archiva.xml:/archiva/contexts/archiva.xml:ro #for nginx
-#    ports:
-#      - '1080:8080'
-#    networks:
-#      - public
+  # archiva:
+  #   build: ./archiva
+  #   env_file:
+  #     - ./common/common.env
+  #   restart: always
+  #   volumes:
+  #     - archiva-data:/archiva-data
+  #     - ./archiva/archiva.xml:/archiva/contexts/archiva.xml:ro #for nginx
+  #   ports:
+  #     - '1080:8080'
+  #   networks:
+  #     - public
 
   hubot:
     image: rocketchat/hubot-rocketchat:latest
@@ -274,7 +274,7 @@ networks:
   redmine-nw:
 
 volumes:
-#  archiva-data:
+  # archiva-data:
   es-data:
   gitlab-data:
   gitlab-etc:
