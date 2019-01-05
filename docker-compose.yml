@@ -27,6 +27,7 @@ services:
       - gitlab
       - jenkins
       - ntp
+      - phpldapadmin
       - plantuml
       - redmine
     networks:
