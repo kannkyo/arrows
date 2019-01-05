@@ -1,4 +1,4 @@
 FROM plantuml/plantuml-server:latest
 
 # plantuml environment
-ENV PLANTUML_STATS=on
+# ENV PLANTUML_STATS=on
