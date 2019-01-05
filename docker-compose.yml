@@ -37,8 +37,8 @@ services:
     env_file:
       - ./ldap/openldap/default.env
     volumes:
-      - ldap-data:/var/lib/ldap
       - ldap-config:/etc/ldap/slapd.d
+      - ldap-data:/var/lib/ldap
     networks:
       - public
 
@@ -57,9 +57,9 @@ services:
       - ./common/common.env
     restart: always
     volumes:
+      - gitlab-data:/var/opt/gitlab
       - gitlab-etc:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
-      - gitlab-data:/var/opt/gitlab
       - ./gitlab/_backup:/secret/gitlab/backups
     ports:
       - '10081:10081'
@@ -150,8 +150,8 @@ services:
       - '23000:3000'
     volumes:
       - redmine-files:/usr/src/redmine/files
-      - ./redmine/app/config.ru:/usr/src/redmine/config.ru:ro #for nginx
       - redmine-git:/var/redmine/git_repositories #for gitlab
+      - ./redmine/app/config.ru:/usr/src/redmine/config.ru:ro #for nginx
     networks:
       - public
       - redmine-nw

@@ -10,3 +10,5 @@ arrows_jenkins_1,arrows_jenkins-home,/var/jenkins_home
 arrows_nexus_1,arrows_nexus-data,/nexus-data
 arrows_redmine_1,arrows_redmine-files,/usr/src/redmine/files
 arrows_redmine-db_1,arrows_redmine-db-data,/var/lib/mysql
+arrows_openldap_1,arrows_ldap-config,/etc/ldap/slapd.d
+arrows_openldap_1,arrows_ldap-data,/var/lib/ldap
