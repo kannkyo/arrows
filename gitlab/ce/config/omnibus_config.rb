@@ -1,7 +1,7 @@
-gitlab_rails['lfs_enabled'] = true
+# gitlab
 external_url 'http://localhost:80/gitlab'
-mattermost_external_url 'http://localhost:10081'
-registry_external_url 'http://localhost:10082'
+
+gitlab_rails['lfs_enabled'] = true
 gitlab_rails['ldap_enabled'] = true
 gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
   main: # 'main' is the GitLab 'provider ID' of this LDAP server
@@ -27,3 +27,17 @@ gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
       first_name: 'givenName'
       last_name:  'sn'
 EOS
+
+# registry
+registry_external_url 'http://localhost:10082'
+
+# mattermost
+mattermost_external_url 'http://localhost:10081'
+mattermost['enable'] = true
+mattermost['env'] = {
+  'MM_LOCALIZATIONSETTINGS_DEFAULTSERVERLOCALE' => 'ja',
+  'MM_LOCALIZATIONSETTINGS_DEFAULTCLIENTLOCALE' => 'ja',
+  'MM_EMAILSETTINGS_ENABLESIGNUPWITHEMAIL' => 'false',
+  'MM_EMAILSETTINGS_ENABLESIGNINWITHEMAIL' => 'false',
+  'MM_EMAILSETTINGS_ENABLESIGNINWITHUSERNAME' => 'false',
+}

@@ -17,6 +17,9 @@
 
      - GitLab CE
        - [backup-and-restore-omnibus-gitlab-configuration](https://docs.gitlab.com/omnibus/settings/backups.html#backup-and-restore-omnibus-gitlab-configuration)
+       - Mattemost
+         - [mattermost config-settings](https://docs.mattermost.com/administration/config-settings.html)
+         - [gitlab-mattemost](https://docs.gitlab.com/omnibus/gitlab-mattermost/)
      - GitLab runner
        - [registering-a-shared-runner](https://docs.gitlab.com/ee/ci/runners/#registering-a-shared-runner)
      - Plantuml
