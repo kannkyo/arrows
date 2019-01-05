@@ -48,6 +48,10 @@ server {
     proxy_pass http://plantuml:8080/plantuml/;
   }
 
+  location ^~ /phpldapadmin/ {
+    proxy_pass http://phpldapadmin:80/phpldapadmin/;
+  }
+
   error_page   500 502 503 504  /50x.html;
   location = /50x.html {
     root   /usr/share/nginx/html;

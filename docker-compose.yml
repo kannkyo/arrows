@@ -32,6 +32,25 @@ services:
     networks:
       - public
 
+  openldap:
+    image: osixia/openldap:latest
+    env_file:
+      - ./ldap/openldap/default.env
+    volumes:
+      - ldap-data:/var/lib/ldap
+      - ldap-config:/etc/ldap/slapd.d
+    networks:
+      - public
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    env_file:
+      - ./ldap/phpldapadmin/default.env
+    ports:
+      - "180:80"
+    networks:
+      - public
+
   gitlab:
     build: ./gitlab/ce
     env_file:
@@ -238,6 +257,8 @@ volumes:
   gitlab-specific-runner-etc:
   gitlab-specific-runner-home:
   jenkins-home:
+  ldap-config:
+  ldap-data:
   nexus-backup:
   nexus-data:
   redmine-db-data:
