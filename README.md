@@ -11,6 +11,13 @@
    - [Continuous Delivery Software](https://en.wikipedia.org/wiki/Continuous_Delivery)
      - [Jenkins](https://jenkins.io/)
        - [jenkins/jenkins](https://hub.docker.com/r/jenkins/jenkins/)
+     - [GitLab](https://about.gitlab.com/)
+       - same bellow
+   - [Collaborative software](https://en.wikipedia.org/wiki/Collaborative_software)
+     - [Rocket.Chat](https://rocket.chat/)
+       - [Rocket.Chat](https://hub.docker.com/r/rocketchat/rocket.chat)
+       - [mongo](https://hub.docker.com/_/mongo)
+       - [hubot](https://hub.docker.com/r/rocketchat/hubot-rocketchat)
    - Utility
      - [Network File System](https://en.wikipedia.org/wiki/Distributed_file_system)
        - [stanback/alpine-samba](https://hub.docker.com/r/stanback/alpine-samba)
@@ -19,14 +26,14 @@
      - [LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)
        - [osixia/openldap](https://hub.docker.com/r/osixia/openldap)
        - [osixia/phpldapadmin](https://hub.docker.com/r/osixia/phpldapadmin)
+     - [Reverse Proxy](https://en.wikipedia.org/wiki/Reverse_proxy)
+       - [nginx](https://hub.docker.com/_/nginx/)
    - [Project Management Software](https://en.wikipedia.org/wiki/Project_management_software)
      - [Redmine](http://www.redmine.org/)
        - [redmine](https://hub.docker.com/_/redmine/)
        - [mysql](https://hub.docker.com/_/mysql)
-   - Repository Software
+   - Git-Repository Manager
      - [GitLab](https://about.gitlab.com/)
        - [gitlab/gitlab-ce](https://hub.docker.com/r/gitlab/gitlab-ce/)
        - [gitlab/gitlab-runner](https://hub.docker.com/r/gitlab/gitlab-runner/)
        - [plantuml/plantuml-server](https://hub.docker.com/r/plantuml/plantuml-server)
-   - Reverse Proxy Software
-     - [nginx](https://hub.docker.com/_/nginx/)
