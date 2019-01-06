@@ -8,7 +8,8 @@ arrows_gitlab-specific-runner_1,arrows_gitlab-specific-runner-etc,/etc/gitlab-ru
 arrows_gitlab-specific-runner_1,arrows_gitlab-specific-runner-home,/home/gitlab-runner
 arrows_jenkins_1,arrows_jenkins-home,/var/jenkins_home
 arrows_nexus_1,arrows_nexus-data,/nexus-data
-arrows_redmine_1,arrows_redmine-files,/usr/src/redmine/files
-arrows_redmine-db_1,arrows_redmine-db-data,/var/lib/mysql
 arrows_openldap_1,arrows_ldap-config,/etc/ldap/slapd.d
 arrows_openldap_1,arrows_ldap-data,/var/lib/ldap
+arrows_redmine_1,arrows_redmine-files,/usr/src/redmine/files
+arrows_redmine-db_1,arrows_redmine-db-data,/var/lib/mysql
+arrows_samba_1,arrows_samba-data,/share

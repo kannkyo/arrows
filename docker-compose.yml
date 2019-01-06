@@ -274,7 +274,7 @@ services:
     env_file:
       - ./common/common.env
     volumes:
-      - ./test/centos/nexus:/test/nexus
+      - ./test/centos/data/:/test/
     privileged: true
     networks:
       - public
