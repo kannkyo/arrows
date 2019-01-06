@@ -267,6 +267,16 @@ services:
     networks:
       - public
 
+  test-centos:
+    build: ./test/centos
+    env_file:
+      - ./common/common.env
+    volumes:
+      - ./test/centos/nexus:/test/nexus
+    privileged: true
+    networks:
+      - public
+
 networks:
   public:
   elk-nw:
