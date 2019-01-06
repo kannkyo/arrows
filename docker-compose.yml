@@ -191,10 +191,12 @@ services:
 
   rocketchat:
     image: rocketchat/rocket.chat:latest
-    restart: always
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./rocketchat/rocket.chat/default.env
+    depends_on:
+      - rocketchat-db
     ports:
       - "1235:3000"
     networks:
@@ -203,7 +205,7 @@ services:
 
   rocketchat-db:
     image: mongo:latest
-    restart: always
+    restart: unless-stopped
     env_file:
       - ./common/common.env
     ports:
@@ -215,10 +217,12 @@ services:
 
   hubot:
     image: rocketchat/hubot-rocketchat:latest
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./gitlab/hubot/default.env
-    restart: always
+    depends_on:
+      - rocketchat
     networks:
       - gitlab-nw
       - rocket-nw
