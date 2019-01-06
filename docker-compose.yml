@@ -195,6 +195,8 @@ services:
     env_file:
       - ./common/common.env
       - ./rocketchat/rocket.chat/default.env
+    volumes:
+      - rocketchat-uploads:/app/uploads
     depends_on:
       - rocketchat-db
     ports:
@@ -304,4 +306,5 @@ volumes:
   redmine-files:
   redmine-git:
   rocketchat-db-data:
+  rocketchat-uploads:
   samba-data:
