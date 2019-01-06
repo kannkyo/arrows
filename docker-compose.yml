@@ -17,7 +17,7 @@ services:
       - ./common/common.env
     restart: always
     volumes:
-      - ./nginx/mysite.template:/etc/nginx/conf.d/mysite.template:ro
+      - ./nginx/config/mysite.template:/etc/nginx/conf.d/mysite.template:ro
     ports:
       - '80:80'
       - '443:443'
@@ -109,7 +109,7 @@ services:
     ports:
       - '38080:8080'
     volumes:
-      - ./gitlab/plantuml/ROOT.xml:/var/lib/jetty/webapps/ROOT.xml:ro
+      - ./gitlab/plantuml/config/ROOT.xml:/var/lib/jetty/webapps/ROOT.xml:ro
     networks:
       - public
       - gitlab-nw
@@ -125,7 +125,7 @@ services:
     volumes:
       - redmine-files:/usr/src/redmine/files
       - redmine-git:/var/redmine/git_repositories #for gitlab
-      - ./redmine/app/config.ru:/usr/src/redmine/config.ru:ro #for nginx
+      - ./redmine/app/config/config.ru:/usr/src/redmine/config.ru:ro #for nginx
     networks:
       - public
       - redmine-nw
@@ -138,7 +138,7 @@ services:
     restart: always
     volumes:
       - redmine-db-data:/var/lib/mysql
-      - ./redmine/db/charset.cnf:/etc/mysql/conf.d/charset.cnf:ro #for japanese
+      - ./redmine/db/config/charset.cnf:/etc/mysql/conf.d/charset.cnf:ro #for japanese
     networks:
       - redmine-nw
 
@@ -157,7 +157,7 @@ services:
       # https://help.sonatype.com/repomanager3/backup-and-restore
       - nexus-backup:/nexus-backup #for config backup
       #- nexus-backup:/restore-from-backup:ro #for config restore
-      - ./nexus/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
+      - ./nexus/config/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
     networks:
       - public
 
