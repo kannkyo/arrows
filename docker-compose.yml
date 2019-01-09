@@ -210,10 +210,12 @@ services:
     restart: unless-stopped
     env_file:
       - ./common/common.env
+    command: mongod --smallfiles
     ports:
       - 27017
     volumes:
-      - rocketchat-db-data:/var/lib/mongodb
+      - rocketchat-db-data:/data/db
+      - rocketchat-db-dump:/dump
     networks:
       - rocket-nw
 
@@ -225,6 +227,8 @@ services:
       - ./gitlab/hubot/default.env
     depends_on:
       - rocketchat
+    ports:
+      - "3001:8080"
     networks:
       - gitlab-nw
       - rocket-nw
@@ -306,5 +310,6 @@ volumes:
   redmine-files:
   redmine-git:
   rocketchat-db-data:
+  rocketchat-db-dump:
   rocketchat-uploads:
   samba-data:
