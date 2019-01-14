@@ -233,34 +233,6 @@ services:
       - gitlab-nw
       - rocket-nw
 
-  elasticsearch:
-    build: ./elk/es
-    env_file:
-      - ./common/common.env
-    environment:
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ports:
-      - "9200:9200"
-    volumes:
-      - es-data:/usr/share/elasticsearch/data/
-      - ./elk/es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elk/es/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
-    networks:
-      - elk-nw
-
-  kibana:
-    build: ./elk/kibana
-    env_file:
-      - ./common/common.env
-    ports:
-      - "5601:5601"
-    volumes:
-      - ./elk/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
-    links:
-      - elasticsearch:elasticsearch
-    networks:
-      - elk-nw
-
   samba:
     build: ./samba
     env_file:
@@ -285,7 +257,6 @@ services:
 
 networks:
   public:
-  elk-nw:
   gitlab-nw:
   jenkins-nw:
   redmine-nw:
@@ -293,7 +264,6 @@ networks:
 
 volumes:
   # archiva-data:
-  es-data:
   gitlab-data:
   gitlab-etc:
   gitlab-logs:
