@@ -83,3 +83,16 @@
       ![新規ジョブ作成_sample_ビルド_1](images/jenkins/master/新規ジョブ作成_sample_ビルド_1.png)
 
       ![新規ジョブ作成_sample_ビルド・トリガ_1](images/jenkins/master/新規ジョブ作成_sample_ビルド・トリガ_1.png)
+
+5. ワーニング対応
+
+   1. [リバースプロキシの設定がおかしいようです。](https://wiki.jenkins.io/display/JENKINS/Jenkins+says+my+reverse+proxy+setup+is+broken)
+
+      1. 中止前
+
+         ![リバースプロキシの設定がおかしいようです_中止前](images/jenkins/master/リバースプロキシの設定がおかしいようです_中止前.png)
+
+      2. 中止後
+
+         ![リバースプロキシの設定がおかしいようです_中止後](images/jenkins/master/リバースプロキシの設定がおかしいようです_中止後.png)
+         
