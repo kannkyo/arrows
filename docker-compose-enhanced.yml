@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   elasticsearch:
-    build: ./elk/es
+    build: ./elk/elasticsearch
     env_file:
       - ./common/common.env
     environment:
@@ -11,8 +11,8 @@ services:
       - "9200:9200"
     volumes:
       - es-data:/usr/share/elasticsearch/data/
-      - ./elk/es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elk/es/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elk/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elk/elasticsearch/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
     networks:
       - elk-nw
 
