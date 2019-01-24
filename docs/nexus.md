@@ -8,6 +8,36 @@
 
 ![task-backup](images/nexus/task-backup.png)
 
+
+
+# apt
+
+## Blob Stores
+
+### hosted
+
+![apt-hosted-blob](images/nexus/apt-hosted-blob.png)
+
+### proxy
+
+![apt-proxy-blob](images/nexus/apt-proxy-blob.png)
+
+## Repositories
+
+### proxy
+
+![apt-proxy_1](images/nexus/apt-proxy_1.png)
+
+![apt-proxy_2](images/nexus/apt-proxy_2.png)
+
+## Tasks
+
+### proxy
+
+![apt-proxy-compact-task](images/nexus/apt-proxy-compact-task.png)
+
+
+
 # bower
 
 ## Blob Stores
