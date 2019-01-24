@@ -200,7 +200,7 @@ services:
     depends_on:
       - rocketchat-db
     ports:
-      - "1235:3000"
+      - "3000:3000"
     networks:
       - public
       - rocket-nw
