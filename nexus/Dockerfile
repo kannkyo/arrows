@@ -1,4 +1,4 @@
-FROM sonatype/nexus3:latest
+FROM kannkyo/nexus-repository-apt:latest
 
 ENV NEXUS_BACKUP=/nexus-backup
 

@@ -255,6 +255,17 @@ services:
     networks:
       - public
 
+  test-ubuntu:
+    build: ./test/ubuntu
+    env_file:
+      - ./common/common.env
+    volumes:
+      - ./test/ubuntu/data/:/test/
+    privileged: true
+    tty: true
+    networks:
+      - public
+
 networks:
   public:
   gitlab-nw:
