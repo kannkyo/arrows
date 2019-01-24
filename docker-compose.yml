@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   ntp:
-    build: ./ntp
+    image: cturra/ntp:latest
     env_file:
       - ./common/common.env
     restart: always
@@ -12,7 +12,7 @@ services:
       - public
 
   nginx:
-    build: ./nginx
+    image: nginx:latest
     env_file:
       - ./common/common.env
     restart: always
@@ -34,7 +34,7 @@ services:
       - public
 
   openldap:
-    build: ./ldap/openldap
+    image: osixia/openldap:latest
     env_file:
       - ./common/common.env
       - ./ldap/openldap/default.env
@@ -45,7 +45,7 @@ services:
       - public
 
   phpldapadmin:
-    build: ./ldap/phpldapadmin
+    image: osixia/phpldapadmin:latest
     env_file:
       - ./common/common.env
       - ./ldap/phpldapadmin/default.env
@@ -55,7 +55,7 @@ services:
       - public
 
   gitlab:
-    build: ./gitlab/ce
+    image: gitlab/gitlab-ce:latest
     env_file:
       - ./common/common.env
     restart: always
@@ -78,7 +78,7 @@ services:
       - gitlab-nw
 
   gitlab-runner:
-    build: ./gitlab/runner
+    image: gitlab/gitlab-runner:alpine
     env_file:
       - ./common/common.env
     restart: always
@@ -90,7 +90,7 @@ services:
       - gitlab-nw
 
   gitlab-specific-runner:
-    build: ./gitlab/runner
+    image: gitlab/gitlab-runner:alpine
     env_file:
       - ./common/common.env
     restart: always
@@ -131,7 +131,7 @@ services:
       - redmine-nw
 
   redmine-db:
-    build: ./redmine/db
+    image: mysql:5.7
     env_file:
       - ./common/common.env
       - ./redmine/db/default.env
