@@ -53,7 +53,7 @@ server {
   }
 
   location ^~ /rocketchat/ {
-    proxy_pass http://rocketchat:3000/;
+    proxy_pass http://rocketchat:3000/rocketchat/;
   }
 
   error_page   500 502 503 504  /50x.html;

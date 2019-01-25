@@ -222,7 +222,7 @@ services:
     restart: unless-stopped
     env_file:
       - ./common/common.env
-      - ./gitlab/hubot/default.env
+      - ./rocketchat/hubot/default.env
     depends_on:
       - rocketchat
     ports:
