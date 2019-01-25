@@ -63,6 +63,7 @@ services:
       - gitlab-data:/var/opt/gitlab
       - gitlab-etc:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
+      - redmine-git:/var/redmine/git_repositories
       - ./gitlab/_backup:/secret/gitlab/backups
       - ./gitlab/ce/config/omnibus_config.rb:/omnibus_config.rb:ro
     ports:
@@ -123,6 +124,7 @@ services:
     ports:
       - '23000:3000'
     volumes:
+      - gitlab-data:/var/opt/gitlab
       - redmine-files:/usr/src/redmine/files
       - redmine-git:/var/redmine/git_repositories #for gitlab
       - ./redmine/app/config/config.ru:/usr/src/redmine/config.ru:ro #for nginx
