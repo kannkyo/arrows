@@ -87,12 +87,6 @@
 ### Settings/Members設定
 ![new_project_samplepj_add_user](images/gitlab/ce/new_project_samplepj_add_user.png)
 
-### Integrations/Webhooks設定
-
-![new_project_samplepj_webhooks_1](images/gitlab/ce/new_project_samplepj_webhooks_1.png)
-
-![new_project_samplepj_webhooks_2](images/gitlab/ce/new_project_samplepj_webhooks_2.png)
-
 ## wiki投稿
 
 ![wiki_create_page_1](images/gitlab/ce/wiki_create_page_1.png)
@@ -101,7 +95,30 @@
 
 ![wiki_create_page_3](images/gitlab/ce/wiki_create_page_3.png)
 
+## Jenkins連携
+
+### Integrations/Webhooks設定
+
+- URL
+  - http://gitlab:11f4168169208232ab4b78b138ee33574c@jenkins:8080/jenkins/project/sample
+- Trigger
+  - Push Events
+- Enable SSL verification
+  - Enable
+
+![new_project_samplepj_webhooks_jenkins_1](images/gitlab/ce/new_project_samplepj_webhooks_jenkins_1.png)
+
+![new_project_samplepj_webhooks_jenkins_2](images/gitlab/ce/new_project_samplepj_webhooks_jenkins_2.png)
+
 ## Redmine連携
+
+### 権限設定
+
+```shell
+cd /var/opt/gitlab/
+chmod -R o+r git-data/
+chmod -R o+x git-data/
+```
 
 ### GitLab側のIssue無効化
 
@@ -112,6 +129,19 @@
 #### 設定後
 
 ![setting_general_permissions_after](images/gitlab/ce/setting_general_permissions_after.png)
+
+### Integrations/Webhooks設定
+
+- URL
+  - http://redmine:3000/redmine/sys/fetch_changesets?id=1&key=6lSGAF8joKX7O8OuvWay
+- Trigger
+  - Push events
+- Enable SSL verification
+  - disable
+
+![new_project_samplepj_webhooks_redmine_1](images/gitlab/ce/new_project_samplepj_webhooks_redmine_1.png)
+
+![new_project_samplepj_webhooks_redmine_2](images/gitlab/ce/new_project_samplepj_webhooks_redmine_2.png)
 
 ### コミット
 

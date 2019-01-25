@@ -108,6 +108,19 @@
 
 ![サンプルプロジェクト_設定_メンバー_2](images/redmine/app/サンプルプロジェクト_設定_メンバー_2.png)
 
+## リポジトリ設定
+
+- バージョン管理システム
+  - Git
+- メインリポジトリ
+  - Enable
+- リポジトリのパス
+  - /var/opt/gitlab/git-data/repositories/sample/samplepj.git
+- ファイルとディレクトリの最新コミットを表示する
+  - Enable
+
+![サンプルプロジェクト_リポジトリ](images/redmine/app/サンプルプロジェクト_リポジトリ.png)
+
 ## チケット作成
 
 ![新しいチケット](images/redmine/app/新しいチケット.png)
