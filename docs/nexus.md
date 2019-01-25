@@ -16,9 +16,15 @@
 
 ### hosted
 
+- Name
+  - apt-hosted-blob
+
 ![apt-hosted-blob](images/nexus/apt-hosted-blob.png)
 
 ### proxy
+
+- Name
+  - apt-ploxy-blob
 
 ![apt-proxy-blob](images/nexus/apt-proxy-blob.png)
 
@@ -44,9 +50,15 @@
 
 ### hosted
 
+- Name
+  - bower-hosted-blob
+
 ![bower-hosted-blob](images/nexus/bower-hosted-blob.png)
 
 ### proxy
+
+- Name
+  - bower-proxy-blob
 
 ![bower-proxy-blob](images/nexus/bower-proxy-blob.png)
 
@@ -84,9 +96,15 @@
 
 ### hosted
 
+- Name
+  - docker-hosted-blob
+
 ![docker-hosted-blob](images/nexus/docker-hosted-blob.png)
 
 ### proxy
+
+- Name
+  - docker-proxy-blob
 
 ![docker-proxy-blob](images/nexus/docker-proxy-blob.png)
 
@@ -130,9 +148,15 @@
 
 ### hosted
 
+- Name
+  - maven2-hosted-blob
+
 ![maven2-hosted-blob](images/nexus/maven2-hosted-blob.png)
 
 ### proxy
+
+- Name
+  - maven2-proxy-blob
 
 ![maven2-proxy-blob](images/nexus/maven2-proxy-blob.png)
 
@@ -178,9 +202,15 @@
 
 ### hosted
 
+- Name
+  - npm-hosted-blob
+
 ![npm-hosted-blob](images/nexus/npm-hosted-blob.png)
 
 ### proxy
+
+- Name
+  - npm-proxy-blob
 
 ![npm-proxy-blob](images/nexus/npm-proxy-blob.png)
 
@@ -218,9 +248,15 @@
 
 ### hosted
 
+- Name
+  - pypi-hosted-blob
+
 ![pypi-hosted-blob](images/nexus/pypi-hosted-blob.png)
 
 ### proxy
+
+- Name
+  - pypi-proxy-blob
 
 ![pypi-proxy-blob](images/nexus/pypi-proxy-blob.png)
 
@@ -258,9 +294,15 @@
 
 ### hosted
 
+- Name
+  - yum-hosted-blob
+
 ![yum-hosted-blob](images/nexus/yum-hosted-blob.png)
 
 ### proxy
+
+- Name
+  - yum-proxy-blob
 
 ![yum-proxy-blob](images/nexus/yum-proxy-blob.png)
 
