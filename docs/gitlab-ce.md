@@ -25,16 +25,16 @@
 ![new_user_guest_3](images/gitlab/ce/new_user_guest_3.png)
 
 ## Integrations/PlantUML設定
-#### 設定前
+### 設定前
 
 ![admin_area_integrations_plantuml_before](images/gitlab/ce/admin_area_integrations_plantuml_before.png)
 
-#### 設定後
+### 設定後
 
 ![admin_area_integrations_plantuml_after](images/gitlab/ce/admin_area_integrations_plantuml_after.png)
 
 ## Settings/Visibility and access controls設定
-#### 設定前
+### 設定前
 
 ![admin_area_settings_visibility_before_1](images/gitlab/ce/admin_area_settings_visibility_before_1.png)
 
@@ -44,20 +44,30 @@
 
 ![admin_area_settings_visibility_before_4](images/gitlab/ce/admin_area_settings_visibility_before_4.png)
 
-#### 設定後
+### 設定後
 
 ![admin_area_settings_visibility_after_2](images/gitlab/ce/admin_area_settings_visibility_after_2.png)
 
 ![admin_area_settings_visibility_after_3](images/gitlab/ce/admin_area_settings_visibility_after_3.png)
 
-### Settings/Network設定
-#### 設定前
+## Settings/Network設定
+### 設定前
 
 ![settings_outbound_requests_before](images/gitlab/ce/settings_outbound_requests_before.png)
 
-#### 設定後
+### 設定後
 
 ![settings_outbound_requests_after](images/gitlab/ce/settings_outbound_requests_after.png)
+
+## Service Templates/Redmine設定
+### 設定前
+
+![admin_area_service_templates_redmine_before](images/gitlab/ce/admin_area_service_templates_redmine_before.png)
+
+### 設定後
+
+![admin_area_service_templates_redmine_after](images/gitlab/ce/admin_area_service_templates_redmine_after.png)
+
 
 # 新規プロジェクト作成
 
@@ -82,6 +92,32 @@
 ![new_project_samplepj_webhooks_1](images/gitlab/ce/new_project_samplepj_webhooks_1.png)
 
 ![new_project_samplepj_webhooks_2](images/gitlab/ce/new_project_samplepj_webhooks_2.png)
+
+## wiki投稿
+
+![wiki_create_page_1](images/gitlab/ce/wiki_create_page_1.png)
+
+![wiki_create_page_2](images/gitlab/ce/wiki_create_page_2.png)
+
+![wiki_create_page_3](images/gitlab/ce/wiki_create_page_3.png)
+
+## Redmine連携
+
+### GitLab側のIssue無効化
+
+#### 設定前
+
+![setting_general_permissions_before](images/gitlab/ce/setting_general_permissions_before.png)
+
+#### 設定後
+
+![setting_general_permissions_after](images/gitlab/ce/setting_general_permissions_after.png)
+
+### コミット
+
+![commit_redmine_ticket_1](images/gitlab/ce/commit_redmine_ticket_1.png)
+
+![commit_redmine_ticket_2](images/gitlab/ce/commit_redmine_ticket_2.png)
 
 # Mattermost初回ログイン
 
