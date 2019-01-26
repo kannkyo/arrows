@@ -90,18 +90,6 @@ services:
     networks:
       - gitlab-nw
 
-  gitlab-specific-runner:
-    image: gitlab/gitlab-runner:alpine
-    env_file:
-      - ./common/common.env
-    restart: always
-    volumes:
-      - gitlab-specific-runner-etc:/etc/gitlab-runner
-      - gitlab-specific-runner-home:/home/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.soc:ro
-    networks:
-      - gitlab-nw
-
   plantuml:
     build: ./gitlab/plantuml
     env_file:
