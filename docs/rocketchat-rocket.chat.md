@@ -91,7 +91,7 @@
 
 ### 変更前
 
-![ログ_変更前](/home/jinn/git/github/kannkyo/arrows/docs/images/rocketchat/rocket.chat/ログ_変更前.png)
+![ログ_変更前](images/rocketchat/rocket.chat/ログ_変更前.png)
 
 ### 変更後
 
@@ -99,7 +99,7 @@
 | ---------- | ---------------- |
 | ログレベル | 1 - エラーと情報 |
 
-![ログ_変更後](/home/jinn/git/github/kannkyo/arrows/docs/images/rocketchat/rocket.chat/ログ_変更後.png)
+![ログ_変更後](images/rocketchat/rocket.chat/ログ_変更後.png)
 
 ## 全般設定
 
