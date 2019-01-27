@@ -1,9 +1,19 @@
 # GitLab初回ログイン
 ## ログイン
 
+| 設定項目          | 設定値   | 備考 |
+| ----------------- | -------- | ---- |
+| Username or email | root     |      |
+| Password          | admin123 |      |
+
 ![first_login](images/gitlab/ce/first_login.png)
 
 ## パスワード変更
+
+| 設定項目             | 設定値   | 備考 |
+| -------------------- | -------- | ---- |
+| New password         | admin123 |      |
+| Confirm new password | admin123 |      |
 
 ![change_your_password](images/gitlab/ce/change_your_password.png)
 
@@ -14,10 +24,24 @@
 # LDAP
 ## ログイン確認
 
+| 設定項目      | 設定値   | 備考 |
+| ------------- | -------- | ---- |
+| タブ          | LDAP     |      |
+| LDAP Username | yamada   |      |
+| Password      | password |      |
+
 ![ＬＤＡＰログイン_1](images/gitlab/ce/ＬＤＡＰログイン_1.png)
 
 # Admin Area
 ## Users/New User追加
+
+| 設定区分 | 設定項目 | 設定値         | 備考 |
+| -------- | -------- | -------------- | ---- |
+| Account  | Name     | guest          |      |
+|          | Username | guest          |      |
+|          | Email    | guset@test.com |      |
+| Password | Password | **TBD**        |      |
+
 ![new_user_guest_1](images/gitlab/ce/new_user_guest_1.png)
 
 ![new_user_guest_2](images/gitlab/ce/new_user_guest_2.png)
@@ -30,6 +54,11 @@
 ![admin_area_integrations_plantuml_before](images/gitlab/ce/admin_area_integrations_plantuml_before.png)
 
 ### 設定後
+
+| 設定区分 | 設定項目        | 設定値                    | 備考 |
+| -------- | --------------- | ------------------------- | ---- |
+| PlantUML | Enable PlantUML | チェック                  |      |
+|          | PlantUML URL    | http://localhost/plantuml |      |
 
 ![admin_area_integrations_plantuml_after](images/gitlab/ce/admin_area_integrations_plantuml_after.png)
 
@@ -46,6 +75,11 @@
 
 ### 設定後
 
+| 設定区分                       | 設定項目         | 設定値                                                       | 備考 |
+| ------------------------------ | ---------------- | ------------------------------------------------------------ | ---- |
+| Visibility and access controls | Import sources   | Bitbucket Server, GitLab.com, Repo by URL, GitLab export, Gitea, Manifest file, Project export enabled |      |
+| Account and limit              | Gravatar enabled | チェック無し                                                 |      |
+
 ![admin_area_settings_visibility_after_2](images/gitlab/ce/admin_area_settings_visibility_after_2.png)
 
 ![admin_area_settings_visibility_after_3](images/gitlab/ce/admin_area_settings_visibility_after_3.png)
@@ -57,6 +91,10 @@
 
 ### 設定後
 
+| 設定区分          | 設定項目                                                    | 設定値   | 備考 |
+| ----------------- | ----------------------------------------------------------- | -------- | ---- |
+| Outbound requests | Allow requests to the local network from hooks and services | チェック |      |
+
 ![settings_outbound_requests_after](images/gitlab/ce/settings_outbound_requests_after.png)
 
 ## Service Templates/Redmine設定
@@ -65,6 +103,14 @@
 ![admin_area_service_templates_redmine_before](images/gitlab/ce/admin_area_service_templates_redmine_before.png)
 
 ### 設定後
+
+| 設定区分 | 設定項目      | 設定値                                              | 備考 |
+| -------- | ------------- | --------------------------------------------------- | ---- |
+| Redmine  | Active        | チェック                                            |      |
+|          | Description   | Redmine issue tracker                               |      |
+|          | Project url   | http://localhost/redmine/projects/sample            |      |
+|          | Issues url    | http://localhost/redmine/issues/:id                 |      |
+|          | New issue url | http://localhost/redmine/projects/sample/issues/new |      |
 
 ![admin_area_service_templates_redmine_after](images/gitlab/ce/admin_area_service_templates_redmine_after.png)
 
