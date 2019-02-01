@@ -40,7 +40,7 @@
 | Account  | Name     | guest          |      |
 |          | Username | guest          |      |
 |          | Email    | guset@test.com |      |
-| Password | Password | **TBD**        |      |
+| Password | Password | password       |      |
 
 ![new_user_guest_1](images/gitlab/ce/new_user_guest_1.png)
 
@@ -117,27 +117,75 @@
 
 # 新規プロジェクト作成
 
-## 新規グループ作成
+## sampleグループ作成
+
+| 設定項目          | 設定値       | 備考 |
+| ----------------- | ------------ | ---- |
+| Group name        | sample       |      |
+| GroupURL          | sample       |      |
+| Group description | Sample Group |      |
+| Visibility level  | Public       |      |
+| Mattermost        | checked      |      |
+
+
 
 ![new_group](images/gitlab/ce/new_group.png)
 
 ## bower-hello-world作成
+
+| 設定項目 | 設定値 | 備考 |
+| -------- | ------ | ---- |
+| Group name        | sample       |      |
+| GroupURL          | sample       |      |
+| Group description | Sample Group |      |
+| Visibility level  | Public       |      |
+| Mattermost        | checked      |      |
+
+
 
 ![new_project_bower-hello-world](images/gitlab/ce/new_project_bower-hello-world.png)
 
 ## samplepj作成
 ### Blank project作成
 
+| 設定項目                            | 設定値          | 備考 |
+| ----------------------------------- | --------------- | ---- |
+| Project name                        | samplepj        |      |
+| ProjectURL                          | samplepj        |      |
+| Project description                 | sample project. |      |
+| Visibility level                    | Public          |      |
+| Initialize repository with a README | checked         |      |
+
+
 ![new_project_samplepj](images/gitlab/ce/new_project_samplepj.png)
 
 ### Settings/Members設定
+
+| 設定項目                 | 設定値 | 備考 |
+| ------------------------ | ------ | ---- |
+| Invite member            | guest  |      |
+| Choose a role permission | Guest  |      |
+
+
+
 ![new_project_samplepj_add_user](images/gitlab/ce/new_project_samplepj_add_user.png)
 
 ## wiki投稿
 
+| 設定項目       | 設定値                     | 備考 |
+| -------------- | -------------------------- | ---- |
+| Title          | home                       |      |
+| Format         | Markdown                   |      |
+| Content        | バグ #1 をなんとかしよう。 |      |
+| Commit message | Create home                |      |
+
+
+
 ![wiki_create_page_1](images/gitlab/ce/wiki_create_page_1.png)
 
 ![wiki_create_page_2](images/gitlab/ce/wiki_create_page_2.png)
+
+Redmine連携を設定済の場合は#1をクリックするとRedmineに飛ぶ。
 
 ![wiki_create_page_3](images/gitlab/ce/wiki_create_page_3.png)
 
@@ -145,12 +193,11 @@
 
 ### Integrations/Webhooks設定
 
-- URL
-  - http://gitlab:11f4168169208232ab4b78b138ee33574c@jenkins:8080/jenkins/project/sample
-- Trigger
-  - Push Events
-- Enable SSL verification
-  - Enable
+| 設定項目          | 設定値   | 備考 |
+| ----------------- | -------- | ---- |
+| URL |   http://gitlab:11f4168169208232ab4b78b138ee33574c@jenkins:8080/jenkins/project/sample   |      |
+| Trigger |   Push Events   |      |
+| Enable SSL verification |  Enable    |      |
 
 ![new_project_samplepj_webhooks_jenkins_1](images/gitlab/ce/new_project_samplepj_webhooks_jenkins_1.png)
 
@@ -174,22 +221,33 @@ chmod -R o+x git-data/
 
 #### 設定後
 
+| 設定項目 | 設定値    | 備考 |
+| -------- | --------- | ---- |
+| Issues   | unchecked |      |
+
+
+
 ![setting_general_permissions_after](images/gitlab/ce/setting_general_permissions_after.png)
 
 ### Integrations/Webhooks設定
 
-- URL
-  - http://redmine:3000/redmine/sys/fetch_changesets?id=1&key=6lSGAF8joKX7O8OuvWay
-- Trigger
-  - Push events
-- Enable SSL verification
-  - disable
+| 設定項目          | 設定値   | 備考 |
+| ----------------- | -------- | ---- |
+| URL |   http://redmine:3000/redmine/sys/fetch_changesets?id=1&key=6lSGAF8joKX7O8OuvWay   |      |
+| Trigger |   Push Events   |      |
+| Enable SSL verification |  disable    |      |
 
 ![new_project_samplepj_webhooks_redmine_1](images/gitlab/ce/new_project_samplepj_webhooks_redmine_1.png)
 
 ![new_project_samplepj_webhooks_redmine_2](images/gitlab/ce/new_project_samplepj_webhooks_redmine_2.png)
 
 ### コミット
+
+| 設定項目       | 設定値      | 備考 |
+| -------------- | ----------- | ---- |
+| Commit message | Fix #1 バグ |      |
+
+
 
 ![commit_redmine_ticket_1](images/gitlab/ce/commit_redmine_ticket_1.png)
 
@@ -199,9 +257,21 @@ chmod -R o+x git-data/
 
 ## ログイン
 
+| 設定項目      | 設定値 | 備考 |
+| ------------- | ------ | ---- |
+| Sign in with: | GitLab |      |
+
+
+
 ![mattermost_1](images/gitlab/ce/mattermost_1.png)
 
 ## Auth認証設定
+
+| 設定項目                                        | 設定値    | 備考 |
+| ----------------------------------------------- | --------- | ---- |
+| Authorize GitLab Mattermost to use your account | Authorize |      |
+
+
 
 ![mattermost_2](images/gitlab/ce/mattermost_2.png)
 
@@ -209,7 +279,15 @@ chmod -R o+x git-data/
 
 ## Team設定
 
+| 設定項目  | 設定値    | 備考 |
+| --------- | --------- | ---- |
+| Team Name | test-team |      |
+
 ![mattermost_4](images/gitlab/ce/mattermost_4.png)
+
+| 設定項目 | 設定値    | 備考 |
+| -------- | --------- | ---- |
+| Team URL | test-team |      |
 
 ![mattermost_5](images/gitlab/ce/mattermost_5.png)
 
