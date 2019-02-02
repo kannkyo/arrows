@@ -67,9 +67,9 @@
 
 ## ログイン確認
 
-![ＬＤＡＰログイン_1](images/jenkins/master/ＬＤＡＰログイン_1.png)
+![ＬＤＡＰログイン_1](images/jenkins/master/ＬＤＡＰ_login_1.png)
 
-![ＬＤＡＰログイン_2](images/jenkins/master/ＬＤＡＰログイン_2.png)
+![ＬＤＡＰログイン_2](images/jenkins/master/ＬＤＡＰ_login_2.png)
 
 # サンプルジョブ作成
 
