@@ -34,13 +34,12 @@ Generic: Organisational Unitをクリック。
 | ------------------- | ------ | ---- |
 | Organixational Unit | groups |      |
 
-
-
 ![create_organisational_unit_3](images/ldap/phpldapadmin/create_organisational_unit_3.png)
 
+![create_organisational_unit_4](images/ldap/phpldapadmin/create_organisational_unit_4.png)
+
+![create_organisational_unit_5](images/ldap/phpldapadmin/create_organisational_unit_5.png)
 
 # ユーザの作成
-
-
 
 ![create_user_entry_1](images/ldap/phpldapadmin/create_user_entry_1.png)
