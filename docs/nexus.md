@@ -18,6 +18,64 @@
 
 
 
+## LDAP
+
+### LDAP Connection
+
+| 設定項目              | 設定値                                                       | 備考 |
+| --------------------- | ------------------------------------------------------------ | ---- |
+| Name                  | openLDAP                                                     |      |
+| LDAP server address   | ldap://openldap:389                                          |      |
+| Search base           | dc=example,dc=com                                            |      |
+| Authentication method | Simple Authentication                                        |      |
+| Username or DN        | cn=admin,dc=example,dc=com                                   |      |
+| Password              | ldappw                                                       |      |
+| Connection rules      | Wait 30 seconds before timeout. Retry after 300 seconds, max of 3 failed attempts. |      |
+
+![LDAP_create_connection_1](images/nexus/LDAP_create_connection_1.png)
+
+### LDAP Users and Groups
+
+#### Setting
+
+| 設定項目                 | 設定値                                      | 備考 |
+| ------------------------ | ------------------------------------------- | ---- |
+| Base DN                  | ou=people                                   |      |
+| User subtree             |                                             |      |
+| Object class             | inetOrgPerson                               |      |
+| User filter              |                                             |      |
+| User ID attribute        | uid                                         |      |
+| Real name attribute      | cn                                          |      |
+| Email attribute          | mail                                        |      |
+| Password attribute       |                                             |      |
+| Map LDAP groups as roles | checked                                     |      |
+| Group types              | Static Groups                               |      |
+| Group base DN            | ou=groups                                   |      |
+| Group subtree            |                                             |      |
+| Group  object class      | groupOfUniqueNames                          |      |
+| Group ID attribute       | cn                                          |      |
+| Group member attribute   | uniqueMember                                |      |
+| Group member format      | uid=${username},ou=people,dc=example,dc=com |      |
+
+
+![LDAP_create_connection_2](images/nexus/LDAP_create_connection_2.png)
+
+![LDAP_create_connection_3](images/nexus/LDAP_create_connection_3.png)
+
+#### Verify user mapping
+
+![LDAP_create_connection_4](images/nexus/LDAP_create_connection_4.png)
+
+#### Verify login
+
+![LDAP_create_connection_5](images/nexus/LDAP_create_connection_5.png)
+
+![LDAP_create_connection_6](images/nexus/LDAP_create_connection_6.png)
+
+### Result
+
+![LDAP_create_connection_7](images/nexus/LDAP_create_connection_7.png)
+
 # apt
 
 ## Blob Stores

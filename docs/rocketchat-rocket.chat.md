@@ -47,27 +47,88 @@
 
 ## LDAP設定
 
-| 設定項目                         | 設定値                                                       |
-| -------------------------------- | ------------------------------------------------------------ |
-| ホスト                           | openldap                                                     |
-| ポート                           | 389                                                          |
-| ベースDN                         | dc=example,dc=com                                            |
-| ユーザDN                         | cn=admin,dc=example,dc=com                                   |
-| パスワード                       | ladppw                                                       |
-| ユーザ名フィールド               | sAMAccountName                                               |
-| 一意性を識別するフィールド       | uid, objectGUID,ibm-entryUUID,GUID,dominoUNID,nsuniqueId,uidNumber |
-| ユーザーデータのフィールドマップ | {"cn":"name", "mail":"email"}                                |
-| 検索フィールド                   | uid                                                          |
+| 設定項目                       | 設定値            |
+| ------------------------------ | ----------------- |
+| 有効にする                     | はい              |
+| ログインフォールバック         | はい              |
+| ログイン後にユーザーを検索する | はい              |
+| ホスト                         | openldap          |
+| ポート                         | 389               |
+| 再接続します                   | はい              |
+| 暗号化                         | 暗号化しない      |
+| ベースDN                       | dc=example,dc=com |
+| 内部ログレベル                 | 無効              |
 
 ![LDAP_1](images/rocketchat/rocket.chat/LDAP_1.png)
 
 ![LDAP_2](images/rocketchat/rocket.chat/LDAP_2.png)
 
+
+### 認証
+
+
+| 設定項目                         | 設定値                                                       |
+| -------------------------------- | ------------------------------------------------------------ |
+| 有効                             | はい                                                         |
+| ユーザDN                         | cn=admin,dc=example,dc=com                                   |
+| パスワード                       | ladppw                                                       |
+
+
+![LDAP_2](images/rocketchat/rocket.chat/LDAP_2.png)
+
+
+### 同期とインポート
+
+
+| 設定項目                                             | 設定値                        |
+| ---------------------------------------------------- | ----------------------------- |
+| ユーザ名フィールド                                   | uid                           |
+| 一意性を識別するフィールド                           | uid                           |
+| 既定ドメイン                                         | rocket.chat                   |
+| 既存のユーザーをマージする                           | いいえ                        |
+| データを同期する                                     | はい                          |
+| ユーザーデータのフィールドマップ                     | {"cn":"name", "mail":"email"} |
+| ユーザーのアバターを同期する                         | いいえ                        |
+| バックグラウンド同期                                 | はい                          |
+| バックグラウンド同期間隔                             | Every 24 hours                |
+| バックグラウンド同期で新しいユーザーをインポートする | はい                          |
+| バックグラウンド同期で既存のユーザーを更新する       | はい                          |
+| 検索フィールド                                       | uid                           |
+
+
 ![LDAP_3](images/rocketchat/rocket.chat/LDAP_3.png)
+
 
 ![LDAP_4](images/rocketchat/rocket.chat/LDAP_4.png)
 
+
+### ユーザ検索
+
 ![LDAP_5](images/rocketchat/rocket.chat/LDAP_5.png)
+
+
+### ユーザー
+
+![LDAP_6](images/rocketchat/rocket.chat/LDAP_6.png)
+
+
+
+### LDAPログイン
+
+| 設定項目   | 設定値   | 備考 |
+| ---------- | -------- | ---- |
+| ユーザー名 | yamada   |      |
+| パスワード | password |      |
+
+
+
+
+
+![LDAP_login_1](images/rocketchat/rocket.chat/LDAP_login_1.png)
+
+![LDAP_login_2](images/rocketchat/rocket.chat/LDAP_login_2.png)
+
+
 
 ## ユーザー設定
 
