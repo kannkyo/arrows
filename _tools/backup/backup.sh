@@ -10,11 +10,15 @@ backup_volume () {
 
   src=/backup
   dst=$(pwd)/backupdata
+  src_gz=$src/$volume.tar.gz
+  dst_gz=$dst/$volume.tar.gz
 
   set -x
-  rm $dst/$volume.tar.gz
+  if test -e $dst_gz; then
+    rm $dst_gz
+  fi
   docker stop $container
-  docker run --rm --volumes-from $container -v $dst:$src ubuntu tar zcf $src/$volume.tar.gz $directory
+  docker run --rm --volumes-from $container -v $dst:$src ubuntu tar zcf $src_gz -C / $directory
   docker start $container
   set +x
 }
@@ -23,4 +27,3 @@ backup_volume () {
 while read row; do
   backup_volume $row
 done < backupinfo.csv
-
