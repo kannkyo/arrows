@@ -268,8 +268,6 @@ volumes:
   gitlab-logs:
   gitlab-runner-etc:
   gitlab-runner-home:
-  gitlab-specific-runner-etc:
-  gitlab-specific-runner-home:
   jenkins-home:
   ldap-config:
   ldap-data:
