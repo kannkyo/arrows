@@ -110,7 +110,7 @@
 | ---------------------- | --------------------------- |
 | 名称                   | openLDAP                    |
 | ホスト                 | openldap                    |
-| ポート                 | 389                         |
+| ポート                 | 389 LDAP                    |
 | アカウント             | cn=admin,dc=example,dc=com  |
 | パスワード             | ldappw                      |
 | ベースDN               | ou=people,dc=example,dc=com |
