@@ -34,7 +34,7 @@ services:
       - public
 
   openldap:
-    image: osixia/openldap:latest
+    image: osixia/openldap:1.2.2
     env_file:
       - ./common/common.env
       - ./ldap/openldap/default.env
@@ -45,7 +45,7 @@ services:
       - public
 
   phpldapadmin:
-    image: osixia/phpldapadmin:latest
+    image: osixia/phpldapadmin:0.7.2
     env_file:
       - ./common/common.env
       - ./ldap/phpldapadmin/default.env
