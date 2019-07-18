@@ -21,42 +21,12 @@ server {
   listen *:443;
   server_name localhost;
 
-  # https://help.sonatype.com/repomanager3/installation/run-behind-a-reverse-proxy#RunBehindaReverseProxy-nginx
-  # Use IPv4 upstream address instead of DNS name to avoid attempts by nginx to use IPv6 DNS lookup
-  location ^~ /nexus/ {
-    proxy_pass http://nexus:8081/nexus/;
-  }
-
   location ^~ /gitlab/ {
     proxy_pass http://gitlab/gitlab/;
   }
 
-#  location ^~ /archiva/ {
-#    proxy_pass http://archiva:8080/archiva/;
-#  }
-
-  location ^~ /redmine/ {
-    proxy_pass http://redmine:3000/redmine/;
-  }
-
-  # https://github.com/mjstealey/jenkins-nginx-docker/blob/master/nginx/default.conf
-  location ^~ /jenkins/ {
-    proxy_pass http://jenkins:8080/jenkins/;
-  }
-
   location ^~ /plantuml/ {
     proxy_pass http://plantuml:8080/plantuml/;
-  }
-
-  location ^~ /phpldapadmin/ {
-    proxy_pass http://phpldapadmin:80/phpldapadmin/;
-  }
-
-  location ^~ /rocketchat/ {
-    proxy_pass http://rocketchat:3000/rocketchat/;
-
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
   }
 
   error_page   500 502 503 504  /50x.html;

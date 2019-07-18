@@ -1,3 +1,0 @@
-emailext-template:latest
-publish-over-ssh:latest
-ssh:latest
