@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.6'
 
 services:
   nginx:
@@ -24,9 +24,9 @@ services:
       - ./common/common.env
     restart: always
     volumes:
-      - gitlab-data:/var/opt/gitlab
-      - gitlab-etc:/etc/gitlab
-      - gitlab-logs:/var/log/gitlab
+      - /mnt/home/gitlab/opt:/var/opt/gitlab
+      - /mnt/home/gitlab/etc:/etc/gitlab
+      - /mnt/home/gitlab/log:/var/log/gitlab
       - ./gitlab/_backup:/secret/gitlab/backups
       - ./gitlab/ce/config/omnibus_config.rb:/omnibus_config.rb:ro
     ports:
@@ -37,6 +37,11 @@ services:
       - '10022:22'
     environment:
       GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
+    # configs:
+    #   - source: gitlab
+    #     target: /omnibus_config.rb
+    secrets:
+      - gitlab_root_password
     networks:
       - public
       - gitlab-nw
@@ -47,8 +52,8 @@ services:
       - ./common/common.env
     restart: always
     volumes:
-      - gitlab-runner-etc:/etc/gitlab-runner
-      - gitlab-runner-home:/home/gitlab-runner
+      - /mnt/home/gitlab-runner/etc:/etc/gitlab-runner
+      - /mng/home/gitlab-runner/home:/home/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - gitlab-nw
@@ -66,14 +71,14 @@ services:
       - public
       - gitlab-nw
 
+# configs:
+#    gitlab:
+#      file: ./gitlab/ce/config/omnibus_config.rb
+
+secrets:
+   gitlab_root_password:
+     file: ./secrets/gitlab.txt
+
 networks:
   public:
   gitlab-nw:
-
-volumes:
-  # archiva-data:
-  gitlab-data:
-  gitlab-etc:
-  gitlab-logs:
-  gitlab-runner-etc:
-  gitlab-runner-home:
