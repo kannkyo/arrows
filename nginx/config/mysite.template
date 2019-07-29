@@ -22,7 +22,7 @@ server {
   server_name localhost;
 
   location ^~ /gitlab/ {
-    proxy_pass http://gitlab/gitlab/;
+    proxy_pass http://gitlab:80/gitlab/;
   }
 
   location ^~ /plantuml/ {
