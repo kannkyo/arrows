@@ -1,15 +1,3 @@
 arrows_gitlab_1,arrows_gitlab-etc,etc/gitlab
 arrows_gitlab_1,arrows_gitlab-data,var/opt/gitlab
 arrows_gitlab_1,arrows_gitlab-logs,var/log/gitlab
-arrows_gitlab-runner_1,arrows_gitlab-runner-etc,etc/gitlab-runner
-arrows_gitlab-runner_1,arrows_gitlab-runner-home,home/gitlab-runner
-arrows_jenkins_1,arrows_jenkins-home,var/jenkins_home
-arrows_nexus_1,arrows_nexus-data,nexus-data
-arrows_openldap_1,arrows_ldap-config,etc/ldap/slapd.d
-arrows_openldap_1,arrows_ldap-data,var/lib/ldap
-arrows_redmine_1,arrows_redmine-files,usr/src/redmine/files
-arrows_redmine-db_1,arrows_redmine-db-data,var/lib/mysql
-arrows_samba_1,arrows_samba-data,share
-arrows_rocketchat_1,rocketchat-uploads,app/uploads
-arrows_rocketchat-db_1,rocketchat-db-data,data/db
-arrows_rocketchat-db_1,rocketchat-db-dump,dump
