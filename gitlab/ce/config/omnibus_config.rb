@@ -1,6 +1,5 @@
 # gitlab
-external_url 'http://gitlab:80/gitlab'
-
+external_url 'http://localhost:80/gitlab'
 gitlab_rails['lfs_enabled'] = true
 gitlab_rails['ldap_enabled'] = true
 gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'

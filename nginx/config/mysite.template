@@ -28,7 +28,7 @@ server {
   }
 
   location ^~ /gitlab/ {
-    proxy_pass http://gitlab/gitlab/;
+    proxy_pass http://gitlab:80/gitlab/;
   }
 
 #  location ^~ /archiva/ {
