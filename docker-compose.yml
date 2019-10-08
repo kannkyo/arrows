@@ -23,7 +23,6 @@ services:
       - '443:443'
     command: /bin/bash -c "envsubst '' < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
     depends_on:
-#      - archiva
       - gitlab
       - jenkins
       - ntp
@@ -165,19 +164,6 @@ services:
     networks:
       - public
       - jenkins-nw
-
-  # archiva:
-  #   build: ./archiva
-  #   env_file:
-  #     - ./common/common.env
-  #   restart: always
-  #   volumes:
-  #     - archiva-data:/archiva-data
-  #     - ./archiva/archiva.xml:/archiva/contexts/archiva.xml:ro #for nginx
-  #   ports:
-  #     - '1080:8080'
-  #   networks:
-  #     - public
 
   rocketchat:
     image: rocketchat/rocket.chat:latest
