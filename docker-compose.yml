@@ -26,11 +26,13 @@ services:
       - gitlab
       - hubot
       - jenkins
+      - nexus
       - ntp
       - phpldapadmin
       - plantuml
       - redmine
       - rocketchat
+      - samba
     networks:
       - public
 
