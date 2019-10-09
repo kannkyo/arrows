@@ -84,8 +84,6 @@ services:
     env_file:
       - ./common/common.env
     restart: always
-    ports:
-      - "38080:8080"
     volumes:
       - ./gitlab/plantuml/ROOT.xml:/var/lib/jetty/webapps/ROOT.xml:ro
     networks:
@@ -98,8 +96,6 @@ services:
       - ./common/common.env
       - ./redmine/app/default.env
     restart: always
-    ports:
-      - "23000:3000"
     volumes:
       - gitlab-data:/var/opt/gitlab
       - redmine-files:/usr/src/redmine/files
@@ -130,7 +126,6 @@ services:
       - ./nexus/default.env
     restart: always
     ports:
-      - "48081:8081" #others
       - "48082:48082" #docker proxy server
       - "48083:48083" #docker hosted server
     volumes:
@@ -148,11 +143,9 @@ services:
     volumes:
       - jenkins-home:/var/jenkins_home
     ports:
-      - "58080:8080"
       - "50000:50000"
     networks:
       - public
-      - jenkins-nw
 
   rocketchat:
     image: rocketchat/rocket.chat:latest
@@ -219,7 +212,6 @@ secrets:
 networks:
   public:
   gitlab-nw:
-  jenkins-nw:
   redmine-nw:
   rocket-nw:
 
