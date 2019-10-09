@@ -89,7 +89,7 @@ services:
       - gitlab-nw
 
   plantuml:
-    build: ./gitlab/plantuml
+    image: plantuml/plantuml-server:latest
     env_file:
       - ./common/common.env
     restart: always
