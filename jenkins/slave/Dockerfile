@@ -1,1 +1,0 @@
-FROM jenkins/slave:alpine

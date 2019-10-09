@@ -217,7 +217,7 @@ services:
       - rocket-nw
 
   samba:
-    build: ./samba
+    image: kannkyo/samba:latest
     env_file:
       - ./common/common.env
     volumes:
