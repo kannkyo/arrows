@@ -63,7 +63,6 @@ services:
       - gitlab-etc:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
       - redmine-git:/var/redmine/git_repositories
-      - ./gitlab/_backup:/secret/gitlab/backups
       - ./gitlab/ce/config/omnibus_config.rb:/omnibus_config.rb:ro
     ports:
       - '10081:10081'
