@@ -7,7 +7,7 @@ services:
       - ./common/common.env
     restart: always
     ports:
-      - '123:123'
+      - "123:123"
     networks:
       - public
 
@@ -19,8 +19,8 @@ services:
     volumes:
       - ./nginx/config/mysite.template:/etc/nginx/conf.d/mysite.template:ro
     ports:
-      - '80:80'
-      - '443:443'
+      - "80:80"
+      - "443:443"
     command: /bin/bash -c "envsubst '' < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
     depends_on:
       - gitlab
@@ -65,11 +65,11 @@ services:
       - redmine-git:/var/redmine/git_repositories
       - ./gitlab/ce/omnibus_config.rb:/omnibus_config.rb:ro
     ports:
-      - '10081:10081'
-      - '10080:80'
-      - '10082:10082'
-      - '10443:443'
-      - '10022:22'
+      - "10081:10081"
+      - "10080:80"
+      - "10082:10082"
+      - "10443:443"
+      - "10022:22"
     environment:
       GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
     networks:
@@ -94,7 +94,7 @@ services:
       - ./common/common.env
     restart: always
     ports:
-      - '38080:8080'
+      - "38080:8080"
     volumes:
       - ./gitlab/plantuml/ROOT.xml:/var/lib/jetty/webapps/ROOT.xml:ro
     networks:
@@ -108,7 +108,7 @@ services:
       - ./redmine/app/default.env
     restart: always
     ports:
-      - '23000:3000'
+      - "23000:3000"
     volumes:
       - gitlab-data:/var/opt/gitlab
       - redmine-files:/usr/src/redmine/files
@@ -137,9 +137,9 @@ services:
       - ./nexus/default.env
     restart: always
     ports:
-      - '48081:8081'  #others
-      - '48082:48082' #docker proxy server
-      - '48083:48083' #docker hosted server
+      - "48081:8081" #others
+      - "48082:48082" #docker proxy server
+      - "48083:48083" #docker hosted server
     volumes:
       - nexus-data:/nexus-data
       - ./nexus/config/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
@@ -155,8 +155,8 @@ services:
     volumes:
       - jenkins-home:/var/jenkins_home
     ports:
-      - '58080:8080'
-      - '50000:50000'
+      - "58080:8080"
+      - "50000:50000"
     networks:
       - public
       - jenkins-nw
