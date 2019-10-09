@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo docker-compose pull
+docker-compose pull
