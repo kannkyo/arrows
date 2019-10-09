@@ -200,19 +200,16 @@ networks:
   rocket-nw:
 
 volumes:
-  # archiva-data:
   gitlab-data:
   gitlab-etc:
   gitlab-logs:
   jenkins-home:
   ldap-config:
   ldap-data:
-  nexus-backup:
   nexus-data:
   redmine-db-data:
   redmine-files:
   redmine-git:
   rocketchat-db-data:
-  rocketchat-db-dump:
   rocketchat-uploads:
   samba-data:
