@@ -193,14 +193,6 @@ services:
     networks:
       - public
 
-configs:
-  gitlab:
-    file: ./gitlab/ce/config/omnibus_config.rb
-
-secrets:
-  gitlab_root_password:
-    file: ./secrets/gitlab.txt
-
 networks:
   public:
   gitlab-nw:
