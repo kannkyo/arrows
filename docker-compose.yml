@@ -97,7 +97,7 @@ services:
       - gitlab-data:/var/opt/gitlab
       - redmine-files:/usr/src/redmine/files
       - redmine-git:/var/redmine/git_repositories #for gitlab
-      - ./redmine/app/config/config.ru:/usr/src/redmine/config.ru:ro #for nginx
+      - ./redmine/app/config.ru:/usr/src/redmine/config.ru:ro #for nginx
     depends_on:
       - redmine-db
     networks:
@@ -112,7 +112,7 @@ services:
     restart: always
     volumes:
       - redmine-db-data:/var/lib/mysql
-      - ./redmine/db/config/charset.cnf:/etc/mysql/conf.d/charset.cnf:ro #for japanese
+      - ./redmine/db/charset.cnf:/etc/mysql/conf.d/charset.cnf:ro #for japanese
     networks:
       - redmine-nw
 
