@@ -1,6 +1,0 @@
-checkstyle:latest
-cobertura:latest
-htmlpublisher:latest
-junit:latest
-warnings:latest
-xunit:latest

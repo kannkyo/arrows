@@ -147,7 +147,7 @@ services:
       - public
 
   jenkins:
-    build: ./jenkins/master
+    image: kannkyo/jenkins:latest
     env_file:
       - ./common/common.env
       - ./jenkins/master/default.env
