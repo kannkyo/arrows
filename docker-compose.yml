@@ -76,18 +76,6 @@ services:
       - public
       - gitlab-nw
 
-  gitlab-runner:
-    image: gitlab/gitlab-runner:alpine
-    env_file:
-      - ./common/common.env
-    restart: always
-    volumes:
-      - gitlab-runner-etc:/etc/gitlab-runner
-      - gitlab-runner-home:/home/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    networks:
-      - gitlab-nw
-
   plantuml:
     image: plantuml/plantuml-server:latest
     env_file:
@@ -235,8 +223,6 @@ volumes:
   gitlab-data:
   gitlab-etc:
   gitlab-logs:
-  gitlab-runner-etc:
-  gitlab-runner-home:
   jenkins-home:
   ldap-config:
   ldap-data:
