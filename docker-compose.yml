@@ -65,12 +65,6 @@ services:
       - gitlab-logs:/var/log/gitlab
       - redmine-git:/var/redmine/git_repositories
       - ./gitlab/ce/omnibus_config.rb:/omnibus_config.rb:ro
-    ports:
-      - "10081:10081"
-      - "10080:80"
-      - "10082:10082"
-      - "10443:443"
-      - "10022:22"
     environment:
       GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
     depends_on:
@@ -156,8 +150,6 @@ services:
       - rocketchat-uploads:/app/uploads
     depends_on:
       - rocketchat-db
-    ports:
-      - "3000:3000"
     networks:
       - public
       - rocket-nw
