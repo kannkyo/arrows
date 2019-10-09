@@ -131,7 +131,7 @@ services:
       - redmine-nw
 
   nexus:
-    build: ./nexus
+    image: sonatype/nexus3:latest
     env_file:
       - ./common/common.env
       - ./nexus/default.env
