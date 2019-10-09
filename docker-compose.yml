@@ -17,7 +17,7 @@ services:
       - ./common/common.env
     restart: always
     volumes:
-      - ./nginx/config/mysite.template:/etc/nginx/conf.d/mysite.template:ro
+      - ./nginx/mysite.template:/etc/nginx/conf.d/mysite.template:ro
     ports:
       - "80:80"
       - "443:443"
