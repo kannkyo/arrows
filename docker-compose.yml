@@ -63,7 +63,7 @@ services:
       - gitlab-etc:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
       - redmine-git:/var/redmine/git_repositories
-      - ./gitlab/ce/config/omnibus_config.rb:/omnibus_config.rb:ro
+      - ./gitlab/ce/omnibus_config.rb:/omnibus_config.rb:ro
     ports:
       - '10081:10081'
       - '10080:80'
@@ -96,7 +96,7 @@ services:
     ports:
       - '38080:8080'
     volumes:
-      - ./gitlab/plantuml/config/ROOT.xml:/var/lib/jetty/webapps/ROOT.xml:ro
+      - ./gitlab/plantuml/ROOT.xml:/var/lib/jetty/webapps/ROOT.xml:ro
     networks:
       - public
       - gitlab-nw
