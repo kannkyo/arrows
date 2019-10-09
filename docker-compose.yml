@@ -12,7 +12,7 @@ services:
       - public
 
   nginx:
-    image: nginx:latest
+    image: nginx:1.17.4
     env_file:
       - ./common/common.env
     restart: always
@@ -55,7 +55,7 @@ services:
       - public
 
   gitlab:
-    image: gitlab/gitlab-ce:latest
+    image: gitlab/gitlab-ce:12.3.5-ce.0
     env_file:
       - ./common/common.env
     restart: always
@@ -80,7 +80,7 @@ services:
       - gitlab-nw
 
   plantuml:
-    image: plantuml/plantuml-server:latest
+    image: plantuml/plantuml-server:jetty
     env_file:
       - ./common/common.env
     restart: always
@@ -124,7 +124,7 @@ services:
       - redmine-nw
 
   nexus:
-    image: sonatype/nexus3:latest
+    image: sonatype/nexus3:3.19.0
     env_file:
       - ./common/common.env
       - ./nexus/default.env
