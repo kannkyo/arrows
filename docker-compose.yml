@@ -29,6 +29,7 @@ services:
       - phpldapadmin
       - plantuml
       - redmine
+      - rocketchat
     networks:
       - public
 
@@ -48,8 +49,8 @@ services:
     env_file:
       - ./common/common.env
       - ./ldap/phpldapadmin/default.env
-    ports:
-      - "180:80"
+    depends_on:
+      - openldap
     networks:
       - public
 
@@ -72,6 +73,8 @@ services:
       - "10022:22"
     environment:
       GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
+    depends_on:
+      - plantuml
     networks:
       - public
       - gitlab-nw
@@ -102,6 +105,8 @@ services:
       - redmine-files:/usr/src/redmine/files
       - redmine-git:/var/redmine/git_repositories #for gitlab
       - ./redmine/app/config/config.ru:/usr/src/redmine/config.ru:ro #for nginx
+    depends_on:
+      - redmine-db
     networks:
       - public
       - redmine-nw
