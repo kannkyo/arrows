@@ -143,9 +143,6 @@ services:
       - '48083:48083' #docker hosted server
     volumes:
       - nexus-data:/nexus-data
-      # https://help.sonatype.com/repomanager3/backup-and-restore
-      - nexus-backup:/nexus-backup #for config backup
-      #- nexus-backup:/restore-from-backup:ro #for config restore
       - ./nexus/config/nexus.properties:/nexus-data/etc/nexus.properties:ro #for nginx
     networks:
       - public
