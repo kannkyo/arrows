@@ -1,0 +1,2 @@
+https://github.com/peclik/clipboard_image_paste
+https://github.com/backlogs/redmine_backlogs
