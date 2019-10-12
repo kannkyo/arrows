@@ -3,9 +3,9 @@ version: "3.6"
 services:
   ntp:
     image: cturra/ntp:latest
+    restart: unless-stopped
     env_file:
       - ./common/common.env
-    restart: always
     ports:
       - "123:123"
     networks:
@@ -13,9 +13,9 @@ services:
 
   nginx:
     image: nginx:1.17.4
+    restart: unless-stopped
     env_file:
       - ./common/common.env
-    restart: always
     volumes:
       - ./nginx/mysite.template:/etc/nginx/conf.d/mysite.template:ro
     ports:
@@ -38,6 +38,7 @@ services:
 
   openldap:
     image: osixia/openldap:1.2.2
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./ldap/openldap/default.env
@@ -49,6 +50,7 @@ services:
 
   phpldapadmin:
     image: osixia/phpldapadmin:0.7.2
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./ldap/phpldapadmin/default.env
@@ -59,17 +61,16 @@ services:
 
   gitlab:
     image: gitlab/gitlab-ce:12.3.5-ce.0
+    restart: unless-stopped
     env_file:
       - ./common/common.env
-    restart: always
+      - ./gitlab/ce/default.env
     volumes:
       - gitlab-data:/var/opt/gitlab
       - gitlab-etc:/etc/gitlab
       - gitlab-logs:/var/log/gitlab
       - redmine-git:/var/redmine/git_repositories
       - ./gitlab/ce/omnibus_config.rb:/omnibus_config.rb:ro
-    environment:
-      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
     depends_on:
       - plantuml
     networks:
@@ -78,9 +79,9 @@ services:
 
   plantuml:
     image: plantuml/plantuml-server:jetty
+    restart: unless-stopped
     env_file:
       - ./common/common.env
-    restart: always
     volumes:
       - ./gitlab/plantuml/ROOT.xml:/var/lib/jetty/webapps/ROOT.xml:ro
     networks:
@@ -89,10 +90,10 @@ services:
 
   redmine:
     build: ./redmine/app
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./redmine/app/default.env
-    restart: always
     volumes:
       - gitlab-data:/var/opt/gitlab
       - redmine-files:/usr/src/redmine/files
@@ -106,10 +107,10 @@ services:
 
   redmine-db:
     image: mysql:5.7
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./redmine/db/default.env
-    restart: always
     volumes:
       - redmine-db-data:/var/lib/mysql
       - ./redmine/db/charset.cnf:/etc/mysql/conf.d/charset.cnf:ro #for japanese
@@ -118,10 +119,10 @@ services:
 
   nexus:
     image: sonatype/nexus3:3.19.0
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./nexus/default.env
-    restart: always
     ports:
       - "48082:48082" #docker proxy server
       - "48083:48083" #docker hosted server
@@ -133,10 +134,10 @@ services:
 
   jenkins:
     image: kannkyo/jenkins:latest
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./jenkins/master/default.env
-    restart: always
     volumes:
       - jenkins-home:/var/jenkins_home
     ports:
@@ -146,6 +147,7 @@ services:
 
   rocketchat:
     image: rocketchat/rocket.chat:2.1.0
+    restart: unless-stopped
     env_file:
       - ./common/common.env
       - ./rocketchat/default.env
@@ -157,7 +159,6 @@ services:
           echo \"Tried $$i times. Waiting 5 secs...\";
           sleep 5;
         done; (exit $$s)"
-    restart: unless-stopped
     volumes:
       - rocketchat-uploads:/app/uploads
     labels:
@@ -171,10 +172,10 @@ services:
 
   rocketchat-db:
     image: mongo:4.0
+    restart: unless-stopped
     env_file:
       - ./common/common.env
     command: mongod --smallfiles --oplogSize 128 --replSet rs0 --storageEngine=mmapv1
-    restart: unless-stopped
     volumes:
       - rocketchat-db-data:/data/db
     labels:
@@ -218,6 +219,7 @@ services:
 
   samba:
     image: kannkyo/samba:latest
+    restart: unless-stopped
     env_file:
       - ./common/common.env
     volumes:
