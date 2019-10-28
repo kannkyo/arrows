@@ -133,7 +133,7 @@ services:
       - public
 
   jenkins:
-    image: kannkyo/jenkins:latest
+    image: jenkinsci/blueocean:latest
     restart: unless-stopped
     env_file:
       - ./common/common.env
