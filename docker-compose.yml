@@ -64,7 +64,8 @@ services:
     restart: unless-stopped
     env_file:
       - ./common/common.env
-      - ./gitlab/ce/default.env
+    environment:
+      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
     volumes:
       - gitlab-data:/var/opt/gitlab
       - gitlab-etc:/etc/gitlab
