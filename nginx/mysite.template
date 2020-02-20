@@ -31,10 +31,6 @@ server {
     proxy_pass http://gitlab:80/gitlab/;
   }
 
-#  location ^~ /archiva/ {
-#    proxy_pass http://archiva:8080/archiva/;
-#  }
-
   location ^~ /redmine/ {
     proxy_pass http://redmine:3000/redmine/;
   }
@@ -46,17 +42,6 @@ server {
 
   location ^~ /plantuml/ {
     proxy_pass http://plantuml:8080/plantuml/;
-  }
-
-  location ^~ /phpldapadmin/ {
-    proxy_pass http://phpldapadmin:80/phpldapadmin/;
-  }
-
-  location ^~ /rocketchat/ {
-    proxy_pass http://rocketchat:3000/rocketchat/;
-
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
   }
 
   error_page   500 502 503 504  /50x.html;
